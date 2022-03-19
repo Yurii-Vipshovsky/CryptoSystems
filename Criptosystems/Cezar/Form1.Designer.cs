@@ -51,6 +51,7 @@ namespace Cezar
             this.cezarAtack = new System.Windows.Forms.ToolStripMenuItem();
             this.cezarAtackEng = new System.Windows.Forms.ToolStripMenuItem();
             this.cezarAtackUkr = new System.Windows.Forms.ToolStripMenuItem();
+            this.trtemiusAtack = new System.Windows.Forms.ToolStripMenuItem();
             this.FrecTab = new System.Windows.Forms.ToolStripMenuItem();
             this.info = new System.Windows.Forms.ToolStripMenuItem();
             this.exit = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +63,7 @@ namespace Cezar
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.printDocumentEncripted = new System.Drawing.Printing.PrintDocument();
-            this.trtemiusAtack = new System.Windows.Forms.ToolStripMenuItem();
+            this.Gamma = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,8 +79,7 @@ namespace Cezar
             this.exit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(914, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -92,29 +92,30 @@ namespace Cezar
             this.print,
             this.створитиToolStripMenuItem});
             this.File.Name = "File";
-            this.File.Size = new System.Drawing.Size(59, 24);
+            this.File.Size = new System.Drawing.Size(48, 20);
             this.File.Text = "Файл";
             // 
             // create
             // 
             this.create.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Cezar,
-            this.Trtemius});
+            this.Trtemius,
+            this.Gamma});
             this.create.Name = "create";
-            this.create.Size = new System.Drawing.Size(157, 26);
+            this.create.Size = new System.Drawing.Size(126, 22);
             this.create.Text = "Створити";
             // 
             // Cezar
             // 
             this.Cezar.Name = "Cezar";
-            this.Cezar.Size = new System.Drawing.Size(215, 26);
+            this.Cezar.Size = new System.Drawing.Size(173, 22);
             this.Cezar.Text = "Шифр Цезаря";
             this.Cezar.Click += new System.EventHandler(this.Cezar_Click);
             // 
             // Trtemius
             // 
             this.Trtemius.Name = "Trtemius";
-            this.Trtemius.Size = new System.Drawing.Size(215, 26);
+            this.Trtemius.Size = new System.Drawing.Size(173, 22);
             this.Trtemius.Text = "Шифр Тритеміуса";
             this.Trtemius.Click += new System.EventHandler(this.trtemius_Click);
             // 
@@ -124,20 +125,20 @@ namespace Cezar
             this.encriptedToolStripMenuItem,
             this.decpritedToolStripMenuItem});
             this.open.Name = "open";
-            this.open.Size = new System.Drawing.Size(157, 26);
+            this.open.Size = new System.Drawing.Size(126, 22);
             this.open.Text = "Відкрити";
             // 
             // encriptedToolStripMenuItem
             // 
             this.encriptedToolStripMenuItem.Name = "encriptedToolStripMenuItem";
-            this.encriptedToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
+            this.encriptedToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.encriptedToolStripMenuItem.Text = "Розшифрований";
             this.encriptedToolStripMenuItem.Click += new System.EventHandler(this.encriptedToolStripMenuItem_Click);
             // 
             // decpritedToolStripMenuItem
             // 
             this.decpritedToolStripMenuItem.Name = "decpritedToolStripMenuItem";
-            this.decpritedToolStripMenuItem.Size = new System.Drawing.Size(208, 26);
+            this.decpritedToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.decpritedToolStripMenuItem.Text = "Зашифрований";
             this.decpritedToolStripMenuItem.Click += new System.EventHandler(this.decpritedToolStripMenuItem_Click);
             // 
@@ -147,20 +148,20 @@ namespace Cezar
             this.decriptedSave,
             this.encriptedSave});
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(157, 26);
+            this.save.Size = new System.Drawing.Size(126, 22);
             this.save.Text = "Зберегти";
             // 
             // decriptedSave
             // 
             this.decriptedSave.Name = "decriptedSave";
-            this.decriptedSave.Size = new System.Drawing.Size(208, 26);
+            this.decriptedSave.Size = new System.Drawing.Size(167, 22);
             this.decriptedSave.Text = "Розшифрований";
             this.decriptedSave.Click += new System.EventHandler(this.decriptedSave_Click);
             // 
             // encriptedSave
             // 
             this.encriptedSave.Name = "encriptedSave";
-            this.encriptedSave.Size = new System.Drawing.Size(208, 26);
+            this.encriptedSave.Size = new System.Drawing.Size(167, 22);
             this.encriptedSave.Text = "Зашифрований";
             this.encriptedSave.Click += new System.EventHandler(this.encriptedSave_Click);
             // 
@@ -170,26 +171,26 @@ namespace Cezar
             this.encriptedPrint,
             this.decriptedPrint});
             this.print.Name = "print";
-            this.print.Size = new System.Drawing.Size(157, 26);
+            this.print.Size = new System.Drawing.Size(126, 22);
             this.print.Text = "Друк";
             // 
             // encriptedPrint
             // 
             this.encriptedPrint.Name = "encriptedPrint";
-            this.encriptedPrint.Size = new System.Drawing.Size(208, 26);
+            this.encriptedPrint.Size = new System.Drawing.Size(167, 22);
             this.encriptedPrint.Text = "Розшифрований";
             this.encriptedPrint.Click += new System.EventHandler(this.encriptedPrint_Click);
             // 
             // decriptedPrint
             // 
             this.decriptedPrint.Name = "decriptedPrint";
-            this.decriptedPrint.Size = new System.Drawing.Size(208, 26);
+            this.decriptedPrint.Size = new System.Drawing.Size(167, 22);
             this.decriptedPrint.Text = "Зашифрований";
             // 
             // створитиToolStripMenuItem
             // 
             this.створитиToolStripMenuItem.Name = "створитиToolStripMenuItem";
-            this.створитиToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.створитиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.створитиToolStripMenuItem.Text = "Створити";
             // 
             // cript
@@ -198,20 +199,20 @@ namespace Cezar
             this.encript,
             this.decript});
             this.cript.Name = "cript";
-            this.cript.Size = new System.Drawing.Size(114, 24);
+            this.cript.Size = new System.Drawing.Size(91, 20);
             this.cript.Text = "Шифрування";
             // 
             // encript
             // 
             this.encript.Name = "encript";
-            this.encript.Size = new System.Drawing.Size(194, 26);
+            this.encript.Size = new System.Drawing.Size(157, 22);
             this.encript.Text = "Шифрувати";
             this.encript.Click += new System.EventHandler(this.encript_Click);
             // 
             // decript
             // 
             this.decript.Name = "decript";
-            this.decript.Size = new System.Drawing.Size(194, 26);
+            this.decript.Size = new System.Drawing.Size(157, 22);
             this.decript.Text = "Розшифрувати";
             this.decript.Click += new System.EventHandler(this.decript_Click);
             // 
@@ -221,7 +222,7 @@ namespace Cezar
             this.cezarAtack,
             this.trtemiusAtack});
             this.atack.Name = "atack";
-            this.atack.Size = new System.Drawing.Size(62, 24);
+            this.atack.Size = new System.Drawing.Size(50, 20);
             this.atack.Text = "Атака";
             // 
             // cezarAtack
@@ -230,75 +231,84 @@ namespace Cezar
             this.cezarAtackEng,
             this.cezarAtackUkr});
             this.cezarAtack.Name = "cezarAtack";
-            this.cezarAtack.Size = new System.Drawing.Size(320, 26);
+            this.cezarAtack.Size = new System.Drawing.Size(255, 22);
             this.cezarAtack.Text = "Груба Сила - Шифр Цезаря";
             // 
             // cezarAtackEng
             // 
             this.cezarAtackEng.Name = "cezarAtackEng";
-            this.cezarAtackEng.Size = new System.Drawing.Size(224, 26);
+            this.cezarAtackEng.Size = new System.Drawing.Size(135, 22);
             this.cezarAtackEng.Text = "Анлгійська";
             this.cezarAtackEng.Click += new System.EventHandler(this.cezarAtackEng_Click);
             // 
             // cezarAtackUkr
             // 
             this.cezarAtackUkr.Name = "cezarAtackUkr";
-            this.cezarAtackUkr.Size = new System.Drawing.Size(224, 26);
+            this.cezarAtackUkr.Size = new System.Drawing.Size(135, 22);
             this.cezarAtackUkr.Text = "Українська";
             this.cezarAtackUkr.Click += new System.EventHandler(this.cezarAtackUkr_Click);
+            // 
+            // trtemiusAtack
+            // 
+            this.trtemiusAtack.Name = "trtemiusAtack";
+            this.trtemiusAtack.Size = new System.Drawing.Size(255, 22);
+            this.trtemiusAtack.Text = "Інтерполяція - Шифр Тритеміуса";
+            this.trtemiusAtack.Click += new System.EventHandler(this.trtemiusAtack_Click);
             // 
             // FrecTab
             // 
             this.FrecTab.Name = "FrecTab";
-            this.FrecTab.Size = new System.Drawing.Size(147, 24);
+            this.FrecTab.Size = new System.Drawing.Size(117, 20);
             this.FrecTab.Text = "Частотна таблиця";
             this.FrecTab.Click += new System.EventHandler(this.FrecTab_Click);
             // 
             // info
             // 
             this.info.Name = "info";
-            this.info.Size = new System.Drawing.Size(55, 24);
+            this.info.Size = new System.Drawing.Size(45, 20);
             this.info.Text = "Інфо";
             this.info.Click += new System.EventHandler(this.info_Click);
             // 
             // exit
             // 
             this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(60, 24);
+            this.exit.Size = new System.Drawing.Size(47, 20);
             this.exit.Text = "Вихід";
             this.exit.Click += new System.EventHandler(this.exit_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 34);
+            this.label1.Location = new System.Drawing.Point(11, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(163, 20);
+            this.label1.Size = new System.Drawing.Size(131, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Розшифрований текст";
             // 
             // decriptedText
             // 
-            this.decriptedText.Location = new System.Drawing.Point(13, 58);
+            this.decriptedText.Location = new System.Drawing.Point(11, 44);
+            this.decriptedText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.decriptedText.Name = "decriptedText";
-            this.decriptedText.Size = new System.Drawing.Size(889, 240);
+            this.decriptedText.Size = new System.Drawing.Size(778, 181);
             this.decriptedText.TabIndex = 2;
             this.decriptedText.Text = "";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 325);
+            this.label2.Location = new System.Drawing.Point(11, 244);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 20);
+            this.label2.Size = new System.Drawing.Size(125, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "Зашифрований текст";
             // 
             // encriptedText
             // 
-            this.encriptedText.Location = new System.Drawing.Point(13, 348);
+            this.encriptedText.Location = new System.Drawing.Point(11, 261);
+            this.encriptedText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.encriptedText.Name = "encriptedText";
-            this.encriptedText.Size = new System.Drawing.Size(889, 240);
+            this.encriptedText.Size = new System.Drawing.Size(778, 181);
             this.encriptedText.TabIndex = 4;
             this.encriptedText.Text = "";
             // 
@@ -321,25 +331,23 @@ namespace Cezar
             this.printDocumentEncripted.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocumentEncripted_BeginPrint);
             this.printDocumentEncripted.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentEncripted_PrintPage);
             // 
-            // trtemiusAtack
+            // Gamma
             // 
-            this.trtemiusAtack.Name = "trtemiusAtack";
-            this.trtemiusAtack.Size = new System.Drawing.Size(320, 26);
-            this.trtemiusAtack.Text = "Інтерполяція - Шифр Тритеміуса";
-            this.trtemiusAtack.Click += new System.EventHandler(this.trtemiusAtack_Click);
+            this.Gamma.Name = "Gamma";
+            this.Gamma.Size = new System.Drawing.Size(173, 22);
+            this.Gamma.Text = "Шифр Гамування";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 600);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.encriptedText);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.decriptedText);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Universal Encryptor";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -386,6 +394,7 @@ namespace Cezar
         private System.Windows.Forms.ToolStripMenuItem FrecTab;
         private System.Windows.Forms.ToolStripMenuItem Trtemius;
         private System.Windows.Forms.ToolStripMenuItem trtemiusAtack;
+        private System.Windows.Forms.ToolStripMenuItem Gamma;
     }
 }
 

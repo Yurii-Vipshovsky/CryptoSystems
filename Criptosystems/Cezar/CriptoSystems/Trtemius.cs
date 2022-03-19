@@ -31,20 +31,6 @@ namespace Cezar.CriptoSystems
             linear = data.linear;
             square = data.square;
         }
-        public bool changeKey(int newKey)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void changeToEng()
-        {
-            isEng = true;
-        }
-
-        public void changeToUkr()
-        {
-            isEng = false;
-        }
 
         public string decrypt(string text)
         {
@@ -57,7 +43,7 @@ namespace Cezar.CriptoSystems
                 }
                 for (int i = 0; i < text.Length; ++i)
                 {
-                    if (!Char.IsLetter(text[i]))
+                    if (!Char.IsLetter(text[i]) && text[i]!='_')
                     {
                         result += text[i];
                         continue;
@@ -79,7 +65,7 @@ namespace Cezar.CriptoSystems
                         int ABCnumb = (int)Enum.Parse(typeof(UkrainianABC), text[i].ToString().ToLower());
                         newElem = ((UkrainianABC)(((((ABCnumb - key) % ICriptoSystem.UKR_ALF_COUNT) + ICriptoSystem.UKR_ALF_COUNT) % ICriptoSystem.UKR_ALF_COUNT))).ToString();
                     }
-                    if (isUpper)
+                    if (isUpper && newElem!="_")
                     {
                         result += newElem.ToUpper();
                     }
@@ -93,7 +79,7 @@ namespace Cezar.CriptoSystems
             {
                 for(int i = 0; i < text.Length; ++i)
                 {
-                    if (!Char.IsLetter(text[i]))
+                    if (!Char.IsLetter(text[i]) && text[i]!='_')
                     {
                         result += text[i];
                         continue;
@@ -131,7 +117,7 @@ namespace Cezar.CriptoSystems
                         int ABCnumb = (int)Enum.Parse(typeof(UkrainianABC), text[i].ToString().ToLower());
                         newElem = ((UkrainianABC)(((ABCnumb + ICriptoSystem.UKR_ALF_COUNT) - (key % ICriptoSystem.UKR_ALF_COUNT)) % ICriptoSystem.UKR_ALF_COUNT)).ToString();
                     }
-                    if (isUpper)
+                    if (isUpper && newElem != "_")
                     {
                         result += newElem.ToUpper();
                     }
@@ -151,6 +137,7 @@ namespace Cezar.CriptoSystems
 
         public string encrypt(string text)
         {
+            text = text.Replace(" ", "_");
             string result = "";
             if (isMotto)
             {
@@ -160,7 +147,7 @@ namespace Cezar.CriptoSystems
                 }
                 for(int i = 0; i < text.Length; ++i)
                 {
-                    if (!Char.IsLetter(text[i]))
+                    if (!Char.IsLetter(text[i]) && text[i]!='_')
                     {
                         result += text[i];
                         continue;
@@ -182,7 +169,7 @@ namespace Cezar.CriptoSystems
                         int ABCnumb = (int)Enum.Parse(typeof(UkrainianABC), text[i].ToString().ToLower());
                         newElem = ((UkrainianABC)((ABCnumb + key) % ICriptoSystem.UKR_ALF_COUNT)).ToString();
                     }
-                    if (isUpper)
+                    if (isUpper && newElem != "_")
                     {
                         result += newElem.ToUpper();
                     }
@@ -234,7 +221,7 @@ namespace Cezar.CriptoSystems
                         int ABCnumb = (int)Enum.Parse(typeof(UkrainianABC), text[i].ToString().ToLower());
                         newElem = ((UkrainianABC)((ABCnumb + key) % ICriptoSystem.UKR_ALF_COUNT)).ToString();
                     }
-                    if (isUpper)
+                    if (isUpper && newElem != "_")
                     {
                         result += newElem.ToUpper();
                     }

@@ -36,21 +36,24 @@ namespace Cezar
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(13, 13);
+            this.richTextBox1.Location = new System.Drawing.Point(11, 10);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(373, 193);
+            this.richTextBox1.Size = new System.Drawing.Size(326, 145);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "Назва Програми - Universal Encryptor\nВиробник - Віпшовський Юрій\nПідтримувані шиф" +
-    "рувальні системи:\n\t1. Шифр Цезаря\n\t2.\nПоточна версія - 0.1";
+    "рувальні системи:\n\t1. Шифр Цезаря\n\t2. Шифр Тритеміуса\n\t3. Шифр Гамування\nПоточна" +
+    " версія - 2.1";
             // 
             // AboutInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 218);
+            this.ClientSize = new System.Drawing.Size(348, 164);
             this.Controls.Add(this.richTextBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AboutInfo";
             this.Text = "Про програму";
             this.ResumeLayout(false);

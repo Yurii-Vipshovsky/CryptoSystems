@@ -22,65 +22,42 @@ namespace Cezar
             isEng = data.isEng;
             isText = data.isText;
         }
-        public void changeToEng() { isEng = true; }
-        public void changeToUkr() { isEng = false; }
-        public bool changeKey(int newKey)
-        {
-            if(!isText&& newKey >= ICriptoSystem.MAX_BYTE_SIZE)
-            {
-                return false;
-            }
-            else if(!isText && newKey > ICriptoSystem.MAX_BYTE_SIZE)
-            {
-                key = newKey;
-                return true;
-            }
-            //мб просто міняти і поколу зсувати
-            if (isEng && newKey >= ICriptoSystem.ENG_ALF_COUNT)//більше за кількість букв
-            {
-                return false;
-            }
-            else if(!isEng && newKey >= ICriptoSystem.UKR_ALF_COUNT)
-            {
-                return false;
-            }
-            else
-            {
-                key = newKey;
-                return true;
-            }
-        }
         public void nextKey()
         {
             if(!isText && key+1 > ICriptoSystem.MAX_BYTE_SIZE)
             {
                 key = 1;
             }
-            else
-            {
-                key++;
-            }
-            if (isEng && key+1 > ICriptoSystem.ENG_ALF_COUNT)//більше за кількість букв
-            {
-                key = 1;
-            }
-            else if (!isEng && key+1 > ICriptoSystem.UKR_ALF_COUNT)
+            else if (!isText)
             {
                 key = 1;
             }
             else
             {
-                key++;
+                if (isEng && key+1 > ICriptoSystem.ENG_ALF_COUNT)//більше за кількість букв
+                {
+                    key = 1;
+                }
+                else if (!isEng && key+1 > ICriptoSystem.UKR_ALF_COUNT)
+                {
+                    key = 1;
+                }
+                else
+                {
+                    key++;
+                }
             }
+            
         }
         public string encrypt(string text)
         {
+            text = text.Replace(" ", "_");
             string result = ""; 
             if (isEng)
             {           
                 foreach (var elem in text)
                 {
-                    if (!Char.IsLetter(elem))
+                    if (!Char.IsLetter(elem) && elem!='_')
                     {
                         result += elem;
                         continue;
@@ -106,7 +83,7 @@ namespace Cezar
             {
                 foreach (var elem in text)
                 {
-                    if (!Char.IsLetter(elem))
+                    if (!Char.IsLetter(elem) && elem != '_')
                     {
                         result += elem;
                         continue;
@@ -146,7 +123,7 @@ namespace Cezar
             {
                 foreach (var elem in text)
                 {
-                    if (!Char.IsLetter(elem))
+                    if (!Char.IsLetter(elem) && elem !='_')
                     {
                         result += elem;
                         continue;
@@ -194,7 +171,7 @@ namespace Cezar
                     }
                 }
             }
-            return result;
+            return result.Replace("_"," ");
         }
         public byte[] decrypt(byte[] info)
         {

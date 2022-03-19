@@ -6,6 +6,7 @@ namespace Cezar.CriptoSystems
 {
     public enum EnglishABC
     {
+        _,
         a,
         b,
         c,
@@ -35,6 +36,7 @@ namespace Cezar.CriptoSystems
     }
     public enum UkrainianABC
     {
+        _,
         а,
         б,
         в,
