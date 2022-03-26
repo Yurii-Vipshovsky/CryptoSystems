@@ -34,6 +34,7 @@ namespace Cezar.CriptoSystems
 
         public string decrypt(string text)
         {
+            text = text.Replace(' ', '_');
             string result = "";
             if (isMotto)
             {
@@ -127,7 +128,7 @@ namespace Cezar.CriptoSystems
                     }
                 }
             }
-            return result;
+            return result.Replace('_',' ');
         }
 
         public byte[] decrypt(byte[] info)
@@ -183,7 +184,7 @@ namespace Cezar.CriptoSystems
             {
                 for (int i = 0; i < text.Length; ++i)
                 {
-                    if (!Char.IsLetter(text[i]))
+                    if (!Char.IsLetter(text[i]) && text[i]!='_')
                     {
                         result += text[i];
                         continue;
@@ -231,7 +232,7 @@ namespace Cezar.CriptoSystems
                     }
                 }
             }
-            return result;
+            return result.Replace('_',' ');
         }
 
         public byte[] encrypt(byte[] info)

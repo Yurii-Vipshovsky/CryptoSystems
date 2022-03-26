@@ -4,11 +4,63 @@ using System.Text;
 
 namespace Cezar.CriptoSystems
 {
-    class Gamma : ICriptoSystem
+    public class Gamma : ICriptoSystem
     {
+        public List<int> gamma = new List<int>();
+        public bool isEng { get; set; }
+        public Gamma(bool eng) { isEng = eng; }
+        private void createGama(int n)
+        {
+            Random generator = new Random();
+            while (gamma.Count < n)
+            {
+                if (isEng)
+                {
+                    gamma.Add(generator.Next(0, ICriptoSystem.ENG_ALF_COUNT));
+                }
+                else
+                {
+                    gamma.Add(generator.Next(0, ICriptoSystem.UKR_ALF_COUNT));
+                }
+            }
+        }
         public string decrypt(string text)
         {
-            throw new NotImplementedException();
+            string result = ""; 
+        
+            for(int i = 0; i < text.Length; ++i)
+            {
+                if (!Char.IsLetter(text[i]) && text[i] != '_')
+                {
+                    result += text[i];
+                    continue;
+                }
+                bool isUpper = false;
+                if (Char.IsUpper(text[i]))
+                {
+                    isUpper = true;
+                }
+                string newElem = "";
+                if (isEng)
+                {
+                    int ABCnumb = (int)Enum.Parse(typeof(EnglishABC), text[i].ToString().ToLower());
+                    newElem = ((EnglishABC)(((((ABCnumb - gamma[i]) % ICriptoSystem.ENG_ALF_COUNT) + ICriptoSystem.ENG_ALF_COUNT) % ICriptoSystem.ENG_ALF_COUNT))).ToString();
+                }
+                else
+                {
+                    int ABCnumb = (int)Enum.Parse(typeof(UkrainianABC), text[i].ToString().ToLower());
+                    newElem = ((UkrainianABC)(((((ABCnumb - gamma[i]) % ICriptoSystem.UKR_ALF_COUNT) + ICriptoSystem.UKR_ALF_COUNT) % ICriptoSystem.UKR_ALF_COUNT))).ToString();
+                }
+                if (isUpper)
+                {
+                    result += newElem.ToUpper();
+                }
+                else
+                {
+                    result += newElem;
+                }
+            }
+            return result.Replace("_", " ");
         }
 
         public byte[] decrypt(byte[] info)
@@ -18,7 +70,42 @@ namespace Cezar.CriptoSystems
 
         public string encrypt(string text)
         {
-            throw new NotImplementedException();
+            text = text.Replace(" ", "_");
+            string result = "";
+            createGama(text.Length);
+            for(int i=0; i < text.Length; ++i)
+            {
+                if (!Char.IsLetter(text[i]) && text[i] != '_')
+                {
+                    result += text[i];
+                    continue;
+                }
+                bool isUpper = false;
+                if (Char.IsUpper(text[i]))
+                {
+                    isUpper = true;
+                }
+                string newElem = "";
+                if (isEng)
+                {
+                    int ABCnumb = (int)Enum.Parse(typeof(EnglishABC), text[i].ToString().ToLower());
+                    newElem = ((EnglishABC)((ABCnumb + gamma[i]) % ICriptoSystem.ENG_ALF_COUNT)).ToString();
+                }
+                else
+                {
+                    int ABCnumb = (int)Enum.Parse(typeof(UkrainianABC), text[i].ToString().ToLower());
+                    newElem = ((UkrainianABC)((ABCnumb + gamma[i]) % ICriptoSystem.UKR_ALF_COUNT)).ToString();
+                }
+                if (isUpper)
+                {
+                    result += newElem.ToUpper();
+                }
+                else
+                {
+                    result += newElem;
+                }
+            }
+            return result;
         }
 
         public byte[] encrypt(byte[] info)
@@ -28,12 +115,12 @@ namespace Cezar.CriptoSystems
 
         public bool isEnglish()
         {
-            throw new NotImplementedException();
+            return isEng;
         }
 
         public bool isTextInfo()
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void nextKey()

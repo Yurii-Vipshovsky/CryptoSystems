@@ -19,14 +19,14 @@ namespace TestCryptosystem
                 isMotto = false,
                 linear = new int[2] { 3, 2 }
             });
-            string expected = "¥ìü³é Ãáä ¥òøìí!";
+            string expected = "¥ìü³³ìÂà´øÃñ÷ëì!";
             string result = encripter.encrypt(decripted);
             Assert.AreEqual(expected, result);
         }
         [TestMethod]
         public void Test_Trtemius_Ukrainian_Linear_Decript()
         {
-            string encripted = "¥ìü³é Ãáä ¥òøìí!";
+            string encripted = "¥ìü³³ìÂà´øÃñ÷ëì!";
             Trtemius encripter = new Trtemius(new TrtemiusInitData()
             {
                 isEng = false,
@@ -49,14 +49,14 @@ namespace TestCryptosystem
                 isMotto = false,
                 square = new int[3] { 3, 2, 1 }
             });
-            string expected = "Ãíåáò Äæó Ùèîêù!";
+            string expected = "ÃíäàğíÁãíóĞÿ´ÿ³!";
             string result = encripter.encrypt(decripted);
             Assert.AreEqual(expected, result);
         }
         [TestMethod]
         public void Test_Trtemius_Ukrainian_Square_Decript()
         {
-            string encripted = "Ãíåáò Äæó Ùèîêù!";
+            string encripted = "ÃíäàğíÁãíóĞÿ´ÿ³!";
             Trtemius encripter = new Trtemius(new TrtemiusInitData()
             {
                 isEng = false,
@@ -85,14 +85,14 @@ namespace TestCryptosystem
                 isMotto = true,
                 motto = Motto
             });
-            string expected = "Óöòâş Üşé Òş³óå!";
+            string expected = "Ô÷óãÿóŞÿ¿¿Óÿ³ôº!";
             string result = encripter.encrypt(decripted);
             Assert.AreEqual(expected, result);
         }
         [TestMethod]
         public void Test_Trtemius_Ukrainian_Motto_Decript()
         {
-            string encripted = "Óöòâş Üşé Òş³óå!";
+            string encripted = "Ô÷óãÿóŞÿ¿¿Óÿ³ôº!";
             string MottoText = "ÑëàâàÓêğà¿í³";
             int[] Motto = new int[MottoText.Length];
             for (int i = 0; i < MottoText.Length; ++i)
@@ -123,14 +123,14 @@ namespace TestCryptosystem
                 isMotto = false,
                 linear = new int[2] { 2, 3 }
             });
-            string expected = "Kjsuz Bp Aohfqi!";
+            string expected = "KjsuzmAos ngeph!";
             string result = encripter.encrypt(decripted);
             Assert.AreEqual(expected, result);
         }
         [TestMethod]
         public void Test_Trtemius_English_Linear_Decript()
         {
-            string encripted = "Kjsuz Bp Aohfqi!";
+            string encripted = "KjsuzmAos ngeph!";
             Trtemius encripter = new Trtemius(new TrtemiusInitData()
             {
                 isEng = true,
@@ -138,7 +138,7 @@ namespace TestCryptosystem
                 isMotto = false,
                 linear = new int[2] { 2, 3 }
             });
-            string expected = "Hello My Friend!";
+            string expected = "Hello My friend!";
             string result = encripter.decrypt(encripted);
             Assert.AreEqual(expected, result);
         }
@@ -153,14 +153,14 @@ namespace TestCryptosystem
                 isMotto = false,
                 square = new int[3] { 2, 1, 3 }
             });
-            string expected = "Kkyjb Pc Xwevdw!";
+            string expected = "Kkyi dMydRovkqh!";
             string result = encripter.encrypt(decripted);
             Assert.AreEqual(expected, result);
         }
         [TestMethod]
         public void Test_Trtemius_English_Square_Decript()
         {
-            string encripted = "Kkyjb Pc Xwevdw!";
+            string encripted = "Kkyi dMydRovkqh!";
             Trtemius encripter = new Trtemius(new TrtemiusInitData()
             {
                 isEng = true,
@@ -189,14 +189,14 @@ namespace TestCryptosystem
                 isMotto = true,
                 motto = Motto
             });
-            string expected = "Npzcm As Wrqrrj!";
+            string expected = "Oq cmtAskXsrssk!";
             string result = encripter.encrypt(decripted);
             Assert.AreEqual(expected, result);
         }
         [TestMethod]
         public void Test_Trtemius_English_Motto_Decript()
         {
-            string encripted = "Npzcm As Wrqrrj!";
+            string encripted = "Oq cmtAskXsrssk!";
             string MottoText = "GloryToUkraine";
             int[] Motto = new int[MottoText.Length];
             for (int i = 0; i < MottoText.Length; ++i)
@@ -219,4 +219,5 @@ namespace TestCryptosystem
 
         #endregion
     }
+
 }

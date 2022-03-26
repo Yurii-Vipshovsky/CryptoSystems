@@ -20,6 +20,7 @@ namespace Cezar
         string FileName;
         Cezar cezar;
         Trtemius trtemius;
+        Gamma gamma;
         byte[] byteInfoDec;
         byte[] byteInfoEnc;
         public Form1()
@@ -229,6 +230,8 @@ namespace Cezar
                 cezar = new Cezar(key.ReturnData());
             }
             CurentSystem = cezar;
+            Criptonotepad.Enabled = false;
+            Criptonotepad.Visible = false;
         }
 
         private void encript_Click(object sender, EventArgs e)
@@ -383,9 +386,10 @@ namespace Cezar
                 trtemius = new Trtemius(key.ReturnData());
             }
             CurentSystem = trtemius;
+            Criptonotepad.Enabled = false;
+            Criptonotepad.Visible = false;
         }
 
-        //Пхд взлом має бути зовсім інший
         private void trtemiusAtack_Click(object sender, EventArgs e)
         {
             //1 буква зашифровується вільним членом з 2 підбираєм коеф для х і перевіряєм чи 3 розшифровується
@@ -648,6 +652,25 @@ namespace Cezar
                 }
 
             }
+        }
+
+        private void Gamma_Click(object sender, EventArgs e)
+        {
+            EnterKeyGamma key = new EnterKeyGamma();
+            key.ShowDialog();
+            if (key.DialogResult == DialogResult.OK)
+            {
+                gamma = new Gamma(key.ReturnData());
+            }
+            CurentSystem = gamma;
+            Criptonotepad.Enabled = true;
+            Criptonotepad.Visible = true;
+        }
+
+        private void Criptonotepad_Click(object sender, EventArgs e)
+        {
+            CriptoNotepad notepad = new CriptoNotepad(gamma);
+            notepad.Show();
         }
     }
 }
