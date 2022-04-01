@@ -47,7 +47,6 @@ namespace Cezar
             this.textTextBox.Name = "textTextBox";
             this.textTextBox.Size = new System.Drawing.Size(695, 26);
             this.textTextBox.TabIndex = 0;
-            this.textTextBox.TextChanged += new System.EventHandler(this.textTextBox_TextChanged);
             // 
             // label1
             // 
@@ -74,7 +73,6 @@ namespace Cezar
             this.gammaTextBox.Name = "gammaTextBox";
             this.gammaTextBox.Size = new System.Drawing.Size(695, 26);
             this.gammaTextBox.TabIndex = 3;
-            this.gammaTextBox.TextChanged += new System.EventHandler(this.gammaTextBox_TextChanged);
             // 
             // label3
             // 
@@ -92,7 +90,6 @@ namespace Cezar
             this.resultTextBox.Name = "resultTextBox";
             this.resultTextBox.Size = new System.Drawing.Size(695, 26);
             this.resultTextBox.TabIndex = 5;
-            this.resultTextBox.TextChanged += new System.EventHandler(this.resultTextBox_TextChanged);
             // 
             // button1
             // 

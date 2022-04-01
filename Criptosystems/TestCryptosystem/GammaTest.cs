@@ -8,7 +8,7 @@ namespace TestCryptosystem
     [TestClass]
     public class GammaTest
     {
-        Gamma gamma = new Gamma(false);
+        Gamma gamma = new Gamma();
 
         [TestMethod]
         public void Test_Gamma_Ukrainian_Encript_Costant1()
@@ -18,14 +18,14 @@ namespace TestCryptosystem
             {
                 gamma.gamma.Add(1);
             }
-            string expected = "ГйубяаНйїаЕсфзє!";
+            string expected = "Гїубя!Нїк!Есфзж\"";
             string result = gamma.encrypt(decripted);
             Assert.AreEqual(expected, result);
         }
         [TestMethod]
         public void Test_Gamma_Ukrainian_Decript_Constant1()
         {
-            string encripted = "ГйубяаНйїаЕсфзє!";
+            string encripted = "Гїубя!Нїк!Есфзж\"";
             string expected = "Вітаю Мій Друже!";
             for (int i = 0; i < encripted.Length; ++i)
             {
@@ -38,21 +38,19 @@ namespace TestCryptosystem
         public void Test_Gamma_English_Encript_Constant1()
         {
             string decripted = "Hello My Friend!";
-            gamma.isEng = true;
             for (int i = 0; i < decripted.Length; ++i)
             {
                 gamma.gamma.Add(1);
             }
-            string expected = "IfmmpaNzaGsjfoe!";
+            string expected = "Ifmmp!Nz!Gsjfoe\"";
             string result = gamma.encrypt(decripted);
             Assert.AreEqual(expected, result);
         }
         [TestMethod]
         public void Test_Gamma_English_Decript_Constant1()
         {
-            string encripted = "IfmmpaNzaGsjfoe!";
+            string encripted = "Ifmmp!Nz!Gsjfoe\"";
             string expected = "Hello My Friend!";
-            gamma.isEng = true;
             for (int i = 0; i < encripted.Length; ++i)
             {
                 gamma.gamma.Add(1);
@@ -64,7 +62,6 @@ namespace TestCryptosystem
         public void Test_Gamma_Creation()
         {
             string decripted = "Hello My Friend!";
-            gamma.isEng = true;
             gamma.gamma.Clear();
             string result1 = gamma.encrypt(decripted);
             gamma.gamma.Clear();

@@ -660,7 +660,8 @@ namespace Cezar
             key.ShowDialog();
             if (key.DialogResult == DialogResult.OK)
             {
-                gamma = new Gamma(key.ReturnData());
+                //gamma = new Gamma(key.ReturnData());
+                gamma = new Gamma();
             }
             CurentSystem = gamma;
             Criptonotepad.Enabled = true;
