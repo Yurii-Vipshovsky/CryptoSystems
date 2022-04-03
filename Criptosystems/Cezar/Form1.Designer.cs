@@ -48,6 +48,7 @@ namespace Cezar
             this.cript = new System.Windows.Forms.ToolStripMenuItem();
             this.encript = new System.Windows.Forms.ToolStripMenuItem();
             this.decript = new System.Windows.Forms.ToolStripMenuItem();
+            this.Criptonotepad = new System.Windows.Forms.ToolStripMenuItem();
             this.atack = new System.Windows.Forms.ToolStripMenuItem();
             this.cezarAtack = new System.Windows.Forms.ToolStripMenuItem();
             this.cezarAtackEng = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +65,7 @@ namespace Cezar
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.printDocumentEncripted = new System.Drawing.Printing.PrintDocument();
-            this.Criptonotepad = new System.Windows.Forms.ToolStripMenuItem();
+            this.Vigener = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,29 +103,30 @@ namespace Cezar
             this.create.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Cezar,
             this.Trtemius,
-            this.Gamma});
+            this.Gamma,
+            this.Vigener});
             this.create.Name = "create";
-            this.create.Size = new System.Drawing.Size(157, 26);
+            this.create.Size = new System.Drawing.Size(224, 26);
             this.create.Text = "Створити";
             // 
             // Cezar
             // 
             this.Cezar.Name = "Cezar";
-            this.Cezar.Size = new System.Drawing.Size(215, 26);
+            this.Cezar.Size = new System.Drawing.Size(224, 26);
             this.Cezar.Text = "Шифр Цезаря";
             this.Cezar.Click += new System.EventHandler(this.Cezar_Click);
             // 
             // Trtemius
             // 
             this.Trtemius.Name = "Trtemius";
-            this.Trtemius.Size = new System.Drawing.Size(215, 26);
+            this.Trtemius.Size = new System.Drawing.Size(224, 26);
             this.Trtemius.Text = "Шифр Тритеміуса";
             this.Trtemius.Click += new System.EventHandler(this.trtemius_Click);
             // 
             // Gamma
             // 
             this.Gamma.Name = "Gamma";
-            this.Gamma.Size = new System.Drawing.Size(215, 26);
+            this.Gamma.Size = new System.Drawing.Size(224, 26);
             this.Gamma.Text = "Шифр Гамування";
             this.Gamma.Click += new System.EventHandler(this.Gamma_Click);
             // 
@@ -134,7 +136,7 @@ namespace Cezar
             this.encriptedToolStripMenuItem,
             this.decpritedToolStripMenuItem});
             this.open.Name = "open";
-            this.open.Size = new System.Drawing.Size(157, 26);
+            this.open.Size = new System.Drawing.Size(224, 26);
             this.open.Text = "Відкрити";
             // 
             // encriptedToolStripMenuItem
@@ -157,7 +159,7 @@ namespace Cezar
             this.decriptedSave,
             this.encriptedSave});
             this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(157, 26);
+            this.save.Size = new System.Drawing.Size(224, 26);
             this.save.Text = "Зберегти";
             // 
             // decriptedSave
@@ -180,7 +182,7 @@ namespace Cezar
             this.encriptedPrint,
             this.decriptedPrint});
             this.print.Name = "print";
-            this.print.Size = new System.Drawing.Size(157, 26);
+            this.print.Size = new System.Drawing.Size(224, 26);
             this.print.Text = "Друк";
             // 
             // encriptedPrint
@@ -199,7 +201,7 @@ namespace Cezar
             // створитиToolStripMenuItem
             // 
             this.створитиToolStripMenuItem.Name = "створитиToolStripMenuItem";
-            this.створитиToolStripMenuItem.Size = new System.Drawing.Size(157, 26);
+            this.створитиToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.створитиToolStripMenuItem.Text = "Створити";
             // 
             // cript
@@ -225,6 +227,15 @@ namespace Cezar
             this.decript.Size = new System.Drawing.Size(224, 26);
             this.decript.Text = "Розшифрувати";
             this.decript.Click += new System.EventHandler(this.decript_Click);
+            // 
+            // Criptonotepad
+            // 
+            this.Criptonotepad.Enabled = false;
+            this.Criptonotepad.Name = "Criptonotepad";
+            this.Criptonotepad.Size = new System.Drawing.Size(224, 26);
+            this.Criptonotepad.Text = "Шифроблокнот";
+            this.Criptonotepad.Visible = false;
+            this.Criptonotepad.Click += new System.EventHandler(this.Criptonotepad_Click);
             // 
             // atack
             // 
@@ -339,14 +350,12 @@ namespace Cezar
             this.printDocumentEncripted.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocumentEncripted_BeginPrint);
             this.printDocumentEncripted.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentEncripted_PrintPage);
             // 
-            // Criptonotepad
+            // Vigener
             // 
-            this.Criptonotepad.Enabled = false;
-            this.Criptonotepad.Name = "Criptonotepad";
-            this.Criptonotepad.Size = new System.Drawing.Size(224, 26);
-            this.Criptonotepad.Text = "Шифроблокнот";
-            this.Criptonotepad.Visible = false;
-            this.Criptonotepad.Click += new System.EventHandler(this.Criptonotepad_Click);
+            this.Vigener.Name = "Vigener";
+            this.Vigener.Size = new System.Drawing.Size(224, 26);
+            this.Vigener.Text = "Шифр Віженера";
+            this.Vigener.Click += new System.EventHandler(this.Vigener_Click);
             // 
             // Form1
             // 
@@ -408,6 +417,7 @@ namespace Cezar
         private System.Windows.Forms.ToolStripMenuItem trtemiusAtack;
         private System.Windows.Forms.ToolStripMenuItem Gamma;
         private System.Windows.Forms.ToolStripMenuItem Criptonotepad;
+        private System.Windows.Forms.ToolStripMenuItem Vigener;
     }
 }
 

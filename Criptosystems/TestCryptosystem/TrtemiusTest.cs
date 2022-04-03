@@ -214,9 +214,6 @@ namespace TestCryptosystem
             string result = encripter.decrypt(encripted);
             Assert.AreEqual(expected, result);
         }
-        //Kkyjb Pc Xwevdw! 2 1 3
-        //Npzcm As Wrqrrj!  Glory To Ukraine
-
         #endregion
     }
 

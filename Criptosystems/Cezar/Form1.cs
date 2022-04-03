@@ -21,6 +21,7 @@ namespace Cezar
         Cezar cezar;
         Trtemius trtemius;
         Gamma gamma;
+        Vigener vigener;
         byte[] byteInfoDec;
         byte[] byteInfoEnc;
         public Form1()
@@ -656,22 +657,30 @@ namespace Cezar
 
         private void Gamma_Click(object sender, EventArgs e)
         {
-            EnterKeyGamma key = new EnterKeyGamma();
-            key.ShowDialog();
-            if (key.DialogResult == DialogResult.OK)
-            {
-                //gamma = new Gamma(key.ReturnData());
-                gamma = new Gamma();
-            }
+            gamma = new Gamma();
             CurentSystem = gamma;
             Criptonotepad.Enabled = true;
             Criptonotepad.Visible = true;
+            MessageBox.Show("Гамма шифр готовий");
         }
 
         private void Criptonotepad_Click(object sender, EventArgs e)
         {
             CriptoNotepad notepad = new CriptoNotepad(gamma);
             notepad.Show();
+        }
+
+        private void Vigener_Click(object sender, EventArgs e)
+        {
+            EnterKeyVigener key = new EnterKeyVigener();
+            key.ShowDialog();
+            if (key.DialogResult == DialogResult.OK)
+            {
+                vigener = new Vigener(key.ReturnData());
+            }
+            CurentSystem = vigener;
+            Criptonotepad.Enabled = false;
+            Criptonotepad.Visible = false;
         }
     }
 }
