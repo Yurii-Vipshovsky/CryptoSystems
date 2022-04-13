@@ -35,6 +35,7 @@ namespace Cezar
             this.Cezar = new System.Windows.Forms.ToolStripMenuItem();
             this.Trtemius = new System.Windows.Forms.ToolStripMenuItem();
             this.Gamma = new System.Windows.Forms.ToolStripMenuItem();
+            this.Vigener = new System.Windows.Forms.ToolStripMenuItem();
             this.open = new System.Windows.Forms.ToolStripMenuItem();
             this.encriptedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.decpritedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +66,7 @@ namespace Cezar
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.printDocumentEncripted = new System.Drawing.Printing.PrintDocument();
-            this.Vigener = new System.Windows.Forms.ToolStripMenuItem();
+            this.RSA = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,7 +105,8 @@ namespace Cezar
             this.Cezar,
             this.Trtemius,
             this.Gamma,
-            this.Vigener});
+            this.Vigener,
+            this.RSA});
             this.create.Name = "create";
             this.create.Size = new System.Drawing.Size(224, 26);
             this.create.Text = "Створити";
@@ -129,6 +131,13 @@ namespace Cezar
             this.Gamma.Size = new System.Drawing.Size(224, 26);
             this.Gamma.Text = "Шифр Гамування";
             this.Gamma.Click += new System.EventHandler(this.Gamma_Click);
+            // 
+            // Vigener
+            // 
+            this.Vigener.Name = "Vigener";
+            this.Vigener.Size = new System.Drawing.Size(224, 26);
+            this.Vigener.Text = "Шифр Віженера";
+            this.Vigener.Click += new System.EventHandler(this.Vigener_Click);
             // 
             // open
             // 
@@ -217,14 +226,14 @@ namespace Cezar
             // encript
             // 
             this.encript.Name = "encript";
-            this.encript.Size = new System.Drawing.Size(224, 26);
+            this.encript.Size = new System.Drawing.Size(200, 26);
             this.encript.Text = "Шифрувати";
             this.encript.Click += new System.EventHandler(this.encript_Click);
             // 
             // decript
             // 
             this.decript.Name = "decript";
-            this.decript.Size = new System.Drawing.Size(224, 26);
+            this.decript.Size = new System.Drawing.Size(200, 26);
             this.decript.Text = "Розшифрувати";
             this.decript.Click += new System.EventHandler(this.decript_Click);
             // 
@@ -232,7 +241,7 @@ namespace Cezar
             // 
             this.Criptonotepad.Enabled = false;
             this.Criptonotepad.Name = "Criptonotepad";
-            this.Criptonotepad.Size = new System.Drawing.Size(224, 26);
+            this.Criptonotepad.Size = new System.Drawing.Size(200, 26);
             this.Criptonotepad.Text = "Шифроблокнот";
             this.Criptonotepad.Visible = false;
             this.Criptonotepad.Click += new System.EventHandler(this.Criptonotepad_Click);
@@ -350,12 +359,12 @@ namespace Cezar
             this.printDocumentEncripted.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocumentEncripted_BeginPrint);
             this.printDocumentEncripted.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentEncripted_PrintPage);
             // 
-            // Vigener
+            // RSA
             // 
-            this.Vigener.Name = "Vigener";
-            this.Vigener.Size = new System.Drawing.Size(224, 26);
-            this.Vigener.Text = "Шифр Віженера";
-            this.Vigener.Click += new System.EventHandler(this.Vigener_Click);
+            this.RSA.Name = "RSA";
+            this.RSA.Size = new System.Drawing.Size(224, 26);
+            this.RSA.Text = "Шифр RSA";
+            this.RSA.Click += new System.EventHandler(this.RSA_Click);
             // 
             // Form1
             // 
@@ -418,6 +427,7 @@ namespace Cezar
         private System.Windows.Forms.ToolStripMenuItem Gamma;
         private System.Windows.Forms.ToolStripMenuItem Criptonotepad;
         private System.Windows.Forms.ToolStripMenuItem Vigener;
+        private System.Windows.Forms.ToolStripMenuItem RSA;
     }
 }
 

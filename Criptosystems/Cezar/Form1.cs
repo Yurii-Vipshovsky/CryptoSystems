@@ -22,6 +22,7 @@ namespace Cezar
         Trtemius trtemius;
         Gamma gamma;
         Vigener vigener;
+        RSA rsa;
         byte[] byteInfoDec;
         byte[] byteInfoEnc;
         public Form1()
@@ -677,10 +678,31 @@ namespace Cezar
             if (key.DialogResult == DialogResult.OK)
             {
                 vigener = new Vigener(key.ReturnData());
+                CurentSystem = vigener;
+                Criptonotepad.Enabled = false;
+                Criptonotepad.Visible = false;
             }
-            CurentSystem = vigener;
-            Criptonotepad.Enabled = false;
-            Criptonotepad.Visible = false;
+            
+        }
+        private void RSA_Click(object sender, EventArgs e)
+        {
+            EnterKeyRSA key = new EnterKeyRSA();
+            key.ShowDialog();
+            if (key.DialogResult == DialogResult.OK)
+            {
+                if (key.ReturnData() == -1)
+                {
+                    rsa = new RSA();
+                }
+                else
+                {
+                    rsa = new RSA(key.ReturnData());
+                }
+                MessageBox.Show("RSA шифр створений відкритий ключ - "+rsa.openKey);
+                CurentSystem = rsa;
+                Criptonotepad.Enabled = false;
+                Criptonotepad.Visible = false;
+            }
         }
     }
 }

@@ -10,6 +10,9 @@
     <Compile Update="EnterKeys\EnterKeyCezar.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="EnterKeys\EnterKeyRSA.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="EnterKeys\EnterKeyTrtemius.cs">
       <SubType>Form</SubType>
     </Compile>
