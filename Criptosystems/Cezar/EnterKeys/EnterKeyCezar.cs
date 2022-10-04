@@ -22,9 +22,8 @@ namespace Cezar.EnterKeys
         }
         public CezarInitData ReturnData()
         {
-            return new CezarInitData() { key = (int)numericUpDown1.Value,
-                                         isEng = comboBox1.SelectedIndex==0 ? false : true, 
-                                         isText = checkBox1.Checked};
+            return new CezarInitData() { linear = new int[] { (int)numericUpDown1.Value, (int)numericUpDown2.Value },
+                                         isEng = comboBox1.SelectedIndex==0 ? false : true};
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -32,34 +31,15 @@ namespace Cezar.EnterKeys
             switch (comboBox1.SelectedIndex)
             { 
                 case 0:
-                    numericUpDown1.Maximum = ICriptoSystem.UKR_ALF_COUNT-1;
+                    numericUpDown1.Maximum = ICriptoSystem.UKR_ALF_COUNT - 1;
+                    numericUpDown2.Maximum = ICriptoSystem.UKR_ALF_COUNT - 1;
                     break;
                 case 1:
-                    numericUpDown1.Maximum = ICriptoSystem.ENG_ALF_COUNT-1;
+                    numericUpDown1.Maximum = ICriptoSystem.ENG_ALF_COUNT - 1;
+                    numericUpDown2.Maximum = ICriptoSystem.ENG_ALF_COUNT - 1;
                     break;
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked == false)
-            {
-                comboBox1.Enabled = false;
-                numericUpDown1.Maximum = ICriptoSystem.MAX_BYTE_SIZE - 1;
-            }
-            else
-            {
-                comboBox1.Enabled = true;
-                switch (comboBox1.SelectedIndex)
-                {
-                    case 0:
-                        numericUpDown1.Maximum = ICriptoSystem.UKR_ALF_COUNT - 1;
-                        break;
-                    case 1:
-                        numericUpDown1.Maximum = ICriptoSystem.ENG_ALF_COUNT - 1;
-                        break;
-                }
-            }
-        }
     }
 }

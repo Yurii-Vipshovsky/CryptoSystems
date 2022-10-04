@@ -32,7 +32,7 @@ namespace Cezar.CriptoSystems
         w,
         x,
         y,
-        z        
+        z
     }
     public enum UkrainianABC
     {

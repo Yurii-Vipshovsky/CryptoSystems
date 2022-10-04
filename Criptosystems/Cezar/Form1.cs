@@ -23,6 +23,7 @@ namespace Cezar
         Gamma gamma;
         Vigener vigener;
         RSA rsa;
+        Uitstone uitstone;
         byte[] byteInfoDec;
         byte[] byteInfoEnc;
         public Form1()
@@ -278,42 +279,42 @@ namespace Cezar
 
         private void cezarAtackEng_Click(object sender, EventArgs e)
         {
-            Cezar atackingCezarEng = new Cezar(new CezarInitData() { key = 1, isEng = true }); 
-            for(int i = 1; i < ICriptoSystem.ENG_ALF_COUNT; ++i)
-            {
-                decriptedText.Text = atackingCezarEng.decrypt(encriptedText.Text);
-                DialogResult dialogResult = MessageBox.Show("Information decripted?", "Decription", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    MessageBox.Show("Cipher hacked, key: "+atackingCezarEng.key, "Done");
-                    return;
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    atackingCezarEng.nextKey();
-                }
-            }
-            MessageBox.Show("We can't decript this text!", "Error");
+            //Cezar atackingCezarEng = new Cezar(new CezarInitData() { key = 1, isEng = true }); 
+            //for(int i = 1; i < ICriptoSystem.ENG_ALF_COUNT; ++i)
+            //{
+            //    decriptedText.Text = atackingCezarEng.decrypt(encriptedText.Text);
+            //    DialogResult dialogResult = MessageBox.Show("Information decripted?", "Decription", MessageBoxButtons.YesNo);
+            //    if (dialogResult == DialogResult.Yes)
+            //    {
+            //        MessageBox.Show("Cipher hacked, key: "+atackingCezarEng.key, "Done");
+            //        return;
+            //    }
+            //    else if (dialogResult == DialogResult.No)
+            //    {
+            //        atackingCezarEng.nextKey();
+            //    }
+            //}
+            //MessageBox.Show("We can't decript this text!", "Error");
         }
 
         private void cezarAtackUkr_Click(object sender, EventArgs e)
         {
-            Cezar atackingCezarUkr = new Cezar(new CezarInitData() { key = 1, isEng = false });
-            for (int i = 1; i < ICriptoSystem.UKR_ALF_COUNT; ++i)
-            {
-                decriptedText.Text = atackingCezarUkr.decrypt(encriptedText.Text);
-                DialogResult dialogResult = MessageBox.Show("Інформація розшифрована?", "Розшифрування", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    MessageBox.Show("Шифр взломаний, ключ: "+ atackingCezarUkr.key, "Готово");
-                    return;
-                }
-                else if (dialogResult == DialogResult.No)
-                {
-                    atackingCezarUkr.nextKey();
-                }
-            }
-            MessageBox.Show("Ми не можемо зламати цей шифр!", "Помилка");
+            //Cezar atackingCezarUkr = new Cezar(new CezarInitData() { key = 1, isEng = false });
+            //for (int i = 1; i < ICriptoSystem.UKR_ALF_COUNT; ++i)
+            //{
+            //    decriptedText.Text = atackingCezarUkr.decrypt(encriptedText.Text);
+            //    DialogResult dialogResult = MessageBox.Show("Інформація розшифрована?", "Розшифрування", MessageBoxButtons.YesNo);
+            //    if (dialogResult == DialogResult.Yes)
+            //    {
+            //        MessageBox.Show("Шифр взломаний, ключ: "+ atackingCezarUkr.key, "Готово");
+            //        return;
+            //    }
+            //    else if (dialogResult == DialogResult.No)
+            //    {
+            //        atackingCezarUkr.nextKey();
+            //    }
+            //}
+            //MessageBox.Show("Ми не можемо зламати цей шифр!", "Помилка");
         }
 
         private void FrecTab_Click(object sender, EventArgs e)
@@ -700,6 +701,19 @@ namespace Cezar
                 }
                 MessageBox.Show("RSA шифр створений відкритий ключ - "+rsa.openKey);
                 CurentSystem = rsa;
+                Criptonotepad.Enabled = false;
+                Criptonotepad.Visible = false;
+            }
+        }
+        private void Uitsrone_Click(object sender, EventArgs e)
+        {
+            EnterKeyUitstone key = new EnterKeyUitstone();
+            key.ShowDialog();
+            if (key.DialogResult == DialogResult.OK)
+            {
+                uitstone = new Uitstone(key.ReturnData());
+                MessageBox.Show("Uitstone шифр створений");
+                CurentSystem = uitstone;
                 Criptonotepad.Enabled = false;
                 Criptonotepad.Visible = false;
             }

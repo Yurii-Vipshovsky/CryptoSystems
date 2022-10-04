@@ -7,47 +7,22 @@ namespace Cezar
 {
     public class CezarInitData
     {
-        public int key { get; set; }
+        public int[] linear { get; set; }
         public bool isEng { get; set; }
-        public bool isText { get; set; }
     }
     class Cezar : ICriptoSystem
     {
-        public int key { get; set; }
+        public int[] linear { get; set; }
         bool isEng;
-        bool isText { get; set; }
         public Cezar(CezarInitData data)
         {
-            key = data.key;
+            linear = data.linear;
             isEng = data.isEng;
-            isText = data.isText;
         }
         public void nextKey()
         {
-            if(!isText && key+1 > ICriptoSystem.MAX_BYTE_SIZE)
-            {
-                key = 1;
-            }
-            else if (!isText)
-            {
-                key = 1;
-            }
-            else
-            {
-                if (isEng && key+1 > ICriptoSystem.ENG_ALF_COUNT)//більше за кількість букв
-                {
-                    key = 1;
-                }
-                else if (!isEng && key+1 > ICriptoSystem.UKR_ALF_COUNT)
-                {
-                    key = 1;
-                }
-                else
-                {
-                    key++;
-                }
-            }
-            
+            throw new NotImplementedException();
+
         }
         public string encrypt(string text)
         {
@@ -68,7 +43,7 @@ namespace Cezar
                         isUpper = true;
                     }
                     int ABCnumb = (int)Enum.Parse(typeof(EnglishABC), elem.ToString().ToLower());
-                    string newElem = ((EnglishABC)((ABCnumb + key) % ICriptoSystem.ENG_ALF_COUNT)).ToString();
+                    string newElem = ((EnglishABC)((((ABCnumb * linear[0]) % ICriptoSystem.ENG_ALF_COUNT)+linear[1]) % ICriptoSystem.ENG_ALF_COUNT)).ToString();
                     if (isUpper)
                     {
                         result += newElem.ToUpper();
@@ -94,7 +69,7 @@ namespace Cezar
                         isUpper = true;
                     }
                     int ABCnumb = (int)Enum.Parse(typeof(UkrainianABC), elem.ToString().ToLower());
-                    string newElem = ((UkrainianABC)((ABCnumb + key) % ICriptoSystem.UKR_ALF_COUNT)).ToString();
+                    string newElem = ((UkrainianABC)((((ABCnumb * linear[0]) % ICriptoSystem.UKR_ALF_COUNT) + linear[1]) % ICriptoSystem.UKR_ALF_COUNT)).ToString();
                     if (isUpper)
                     {
                         result += newElem.ToUpper();
@@ -109,18 +84,30 @@ namespace Cezar
         }
         public byte[] encrypt(byte[] info)
         {
-            byte[] result = new byte[info.Length];
-            for(int i = 0; i < info.Length; ++i)
-            {
-                result[i] = (byte)((Convert.ToInt32(info[i])+key) % ICriptoSystem.MAX_BYTE_SIZE);
-            }
-            return result;
+            throw new NotImplementedException();
         }
+
+        static (int, int, int) gcdex(int a, int b)
+        {
+            if (a == 0)
+                return (b, 0, 1);
+            (int gcd, int x, int y) = gcdex(b % a, a);
+            return (gcd, y - (b / a) * x, x);
+        }
+
+        static int invmod(int a, int m)
+        {
+            (int g, int x, int y) = gcdex(a, m);
+            return g > 1 ? 0 : (x % m + m) % m;
+        }
+
         public string decrypt(string text)
         {
+            
             string result = "";
             if (isEng)
             {
+                int tempLinear1 = invmod(linear[0], ICriptoSystem.ENG_ALF_COUNT);
                 foreach (var elem in text)
                 {
                     if (!Char.IsLetter(elem) && elem !='_')
@@ -134,7 +121,7 @@ namespace Cezar
                         isUpper = true;
                     }
                     int ABCnumb = (int)Enum.Parse(typeof(EnglishABC), elem.ToString().ToLower());
-                    string newElem = ((EnglishABC)(((((ABCnumb - key) % ICriptoSystem.ENG_ALF_COUNT)+ICriptoSystem.ENG_ALF_COUNT)% ICriptoSystem.ENG_ALF_COUNT))).ToString();
+                    string newElem = ((EnglishABC)((((((ABCnumb - linear[1]) % ICriptoSystem.ENG_ALF_COUNT)+ICriptoSystem.ENG_ALF_COUNT)* tempLinear1) % ICriptoSystem.ENG_ALF_COUNT))).ToString();
                     if (isUpper)
                     {
                         result += newElem.ToUpper();
@@ -147,6 +134,7 @@ namespace Cezar
             }
             else
             {
+                int tempLinear1 = invmod(linear[0], ICriptoSystem.UKR_ALF_COUNT);
                 foreach (var elem in text)
                 {
                     if (!Char.IsLetter(elem))
@@ -160,7 +148,7 @@ namespace Cezar
                         isUpper = true;
                     }
                     int ABCnumb = (int)Enum.Parse(typeof(UkrainianABC), elem.ToString().ToLower());
-                    string newElem = ((UkrainianABC)(((((ABCnumb - key) % ICriptoSystem.UKR_ALF_COUNT) + ICriptoSystem.UKR_ALF_COUNT) % ICriptoSystem.UKR_ALF_COUNT))).ToString();
+                    string newElem = ((UkrainianABC)((((((ABCnumb - linear[1]) % ICriptoSystem.UKR_ALF_COUNT) + ICriptoSystem.UKR_ALF_COUNT)* tempLinear1) % ICriptoSystem.UKR_ALF_COUNT))).ToString();
                     if (isUpper)
                     {
                         result += newElem.ToUpper();
@@ -175,12 +163,7 @@ namespace Cezar
         }
         public byte[] decrypt(byte[] info)
         {
-            byte[] result = new byte[info.Length];
-            for (int i = 0; i < info.Length; ++i)
-            {
-                result[i] = (byte)((((Convert.ToInt32(info[i])-key) % ICriptoSystem.MAX_BYTE_SIZE) + ICriptoSystem.MAX_BYTE_SIZE) % ICriptoSystem.MAX_BYTE_SIZE);
-            }
-            return result;
+            throw new NotImplementedException();
         }
 
         public bool isEnglish()
@@ -190,7 +173,7 @@ namespace Cezar
 
         public bool isTextInfo()
         {
-            return isText;
+            return true;
         }
     }
 }

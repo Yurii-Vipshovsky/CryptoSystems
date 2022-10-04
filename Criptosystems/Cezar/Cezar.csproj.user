@@ -16,6 +16,9 @@
     <Compile Update="EnterKeys\EnterKeyTrtemius.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="EnterKeys\EnterKeyUitstone.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="EnterKeys\EnterKeyVigener.cs">
       <SubType>Form</SubType>
     </Compile>
