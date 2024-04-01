@@ -29,378 +29,324 @@ namespace Cezar
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.File = new System.Windows.Forms.ToolStripMenuItem();
-            this.create = new System.Windows.Forms.ToolStripMenuItem();
-            this.Cezar = new System.Windows.Forms.ToolStripMenuItem();
-            this.Trtemius = new System.Windows.Forms.ToolStripMenuItem();
-            this.Gamma = new System.Windows.Forms.ToolStripMenuItem();
-            this.Vigener = new System.Windows.Forms.ToolStripMenuItem();
-            this.RSA = new System.Windows.Forms.ToolStripMenuItem();
-            this.Uitsrone = new System.Windows.Forms.ToolStripMenuItem();
-            this.open = new System.Windows.Forms.ToolStripMenuItem();
-            this.encriptedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.decpritedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.save = new System.Windows.Forms.ToolStripMenuItem();
-            this.decriptedSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.encriptedSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.print = new System.Windows.Forms.ToolStripMenuItem();
-            this.encriptedPrint = new System.Windows.Forms.ToolStripMenuItem();
-            this.decriptedPrint = new System.Windows.Forms.ToolStripMenuItem();
-            this.створитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cript = new System.Windows.Forms.ToolStripMenuItem();
-            this.encript = new System.Windows.Forms.ToolStripMenuItem();
-            this.decript = new System.Windows.Forms.ToolStripMenuItem();
-            this.Criptonotepad = new System.Windows.Forms.ToolStripMenuItem();
-            this.atack = new System.Windows.Forms.ToolStripMenuItem();
-            this.cezarAtack = new System.Windows.Forms.ToolStripMenuItem();
-            this.cezarAtackEng = new System.Windows.Forms.ToolStripMenuItem();
-            this.cezarAtackUkr = new System.Windows.Forms.ToolStripMenuItem();
-            this.trtemiusAtack = new System.Windows.Forms.ToolStripMenuItem();
-            this.FrecTab = new System.Windows.Forms.ToolStripMenuItem();
-            this.info = new System.Windows.Forms.ToolStripMenuItem();
-            this.exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.decriptedText = new System.Windows.Forms.RichTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.encriptedText = new System.Windows.Forms.RichTextBox();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.printDocumentEncripted = new System.Drawing.Printing.PrintDocument();
-            this.menuStrip1.SuspendLayout();
-            this.SuspendLayout();
+            menuStrip1 = new System.Windows.Forms.MenuStrip();
+            File = new System.Windows.Forms.ToolStripMenuItem();
+            create = new System.Windows.Forms.ToolStripMenuItem();
+            RSA = new System.Windows.Forms.ToolStripMenuItem();
+            RSAParalelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            open = new System.Windows.Forms.ToolStripMenuItem();
+            encriptedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            decpritedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            save = new System.Windows.Forms.ToolStripMenuItem();
+            decriptedSave = new System.Windows.Forms.ToolStripMenuItem();
+            encriptedSave = new System.Windows.Forms.ToolStripMenuItem();
+            print = new System.Windows.Forms.ToolStripMenuItem();
+            encriptedPrint = new System.Windows.Forms.ToolStripMenuItem();
+            decriptedPrint = new System.Windows.Forms.ToolStripMenuItem();
+            створитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            cript = new System.Windows.Forms.ToolStripMenuItem();
+            encript = new System.Windows.Forms.ToolStripMenuItem();
+            decript = new System.Windows.Forms.ToolStripMenuItem();
+            Criptonotepad = new System.Windows.Forms.ToolStripMenuItem();
+            atack = new System.Windows.Forms.ToolStripMenuItem();
+            cezarAtack = new System.Windows.Forms.ToolStripMenuItem();
+            cezarAtackEng = new System.Windows.Forms.ToolStripMenuItem();
+            cezarAtackUkr = new System.Windows.Forms.ToolStripMenuItem();
+            trtemiusAtack = new System.Windows.Forms.ToolStripMenuItem();
+            FrecTab = new System.Windows.Forms.ToolStripMenuItem();
+            info = new System.Windows.Forms.ToolStripMenuItem();
+            exit = new System.Windows.Forms.ToolStripMenuItem();
+            label1 = new System.Windows.Forms.Label();
+            decriptedText = new System.Windows.Forms.RichTextBox();
+            label2 = new System.Windows.Forms.Label();
+            encriptedText = new System.Windows.Forms.RichTextBox();
+            printDialog1 = new System.Windows.Forms.PrintDialog();
+            saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            printDocumentEncripted = new System.Drawing.Printing.PrintDocument();
+            RSASecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
+            SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.File,
-            this.cript,
-            this.atack,
-            this.FrecTab,
-            this.info,
-            this.exit});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { File, cript, atack, FrecTab, info, exit });
+            menuStrip1.Location = new System.Drawing.Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            menuStrip1.Size = new System.Drawing.Size(1143, 35);
+            menuStrip1.TabIndex = 0;
+            menuStrip1.Text = "menuStrip1";
             // 
             // File
             // 
-            this.File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.create,
-            this.open,
-            this.save,
-            this.print,
-            this.створитиToolStripMenuItem});
-            this.File.Name = "File";
-            this.File.Size = new System.Drawing.Size(48, 20);
-            this.File.Text = "Файл";
+            File.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { create, open, save, print, створитиToolStripMenuItem });
+            File.Name = "File";
+            File.Size = new System.Drawing.Size(69, 29);
+            File.Text = "Файл";
             // 
             // create
             // 
-            this.create.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Cezar,
-            this.Trtemius,
-            this.Gamma,
-            this.Vigener,
-            this.RSA,
-            this.Uitsrone});
-            this.create.Name = "create";
-            this.create.Size = new System.Drawing.Size(126, 22);
-            this.create.Text = "Створити";
-            // 
-            // Cezar
-            // 
-            this.Cezar.Name = "Cezar";
-            this.Cezar.Size = new System.Drawing.Size(172, 22);
-            this.Cezar.Text = "Шифр Цезаря";
-            this.Cezar.Click += new System.EventHandler(this.Cezar_Click);
-            // 
-            // Trtemius
-            // 
-            this.Trtemius.Name = "Trtemius";
-            this.Trtemius.Size = new System.Drawing.Size(172, 22);
-            this.Trtemius.Text = "Шифр Тритеміуса";
-            this.Trtemius.Visible = false;
-            this.Trtemius.Click += new System.EventHandler(this.trtemius_Click);
-            // 
-            // Gamma
-            // 
-            this.Gamma.Name = "Gamma";
-            this.Gamma.Size = new System.Drawing.Size(172, 22);
-            this.Gamma.Text = "Шифр Гамування";
-            this.Gamma.Visible = false;
-            this.Gamma.Click += new System.EventHandler(this.Gamma_Click);
-            // 
-            // Vigener
-            // 
-            this.Vigener.Name = "Vigener";
-            this.Vigener.Size = new System.Drawing.Size(172, 22);
-            this.Vigener.Text = "Шифр Віженера";
-            this.Vigener.Visible = false;
-            this.Vigener.Click += new System.EventHandler(this.Vigener_Click);
+            create.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { RSA, RSAParalelToolStripMenuItem, RSASecToolStripMenuItem });
+            create.Name = "create";
+            create.Size = new System.Drawing.Size(270, 34);
+            create.Text = "Створити";
             // 
             // RSA
             // 
-            this.RSA.Name = "RSA";
-            this.RSA.Size = new System.Drawing.Size(172, 22);
-            this.RSA.Text = "Шифр RSA";
-            this.RSA.Visible = false;
-            this.RSA.Click += new System.EventHandler(this.RSA_Click);
+            RSA.Name = "RSA";
+            RSA.Size = new System.Drawing.Size(315, 34);
+            RSA.Text = "Шифр RSA";
+            RSA.Visible = false;
+            RSA.Click += RSA_Click;
             // 
-            // Uitsrone
+            // RSAParalelToolStripMenuItem
             // 
-            this.Uitsrone.Name = "Uitsrone";
-            this.Uitsrone.Size = new System.Drawing.Size(172, 22);
-            this.Uitsrone.Text = "Шифр Уітстона";
-            this.Uitsrone.Click += new System.EventHandler(this.Uitsrone_Click);
+            RSAParalelToolStripMenuItem.Name = "RSAParalelToolStripMenuItem";
+            RSAParalelToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            RSAParalelToolStripMenuItem.Text = "Шифр RSA Паралельний";
+            RSAParalelToolStripMenuItem.Click += RSAParalelToolStripMenuItem_Click;
             // 
             // open
             // 
-            this.open.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.encriptedToolStripMenuItem,
-            this.decpritedToolStripMenuItem});
-            this.open.Name = "open";
-            this.open.Size = new System.Drawing.Size(126, 22);
-            this.open.Text = "Відкрити";
+            open.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { encriptedToolStripMenuItem, decpritedToolStripMenuItem });
+            open.Name = "open";
+            open.Size = new System.Drawing.Size(270, 34);
+            open.Text = "Відкрити";
             // 
             // encriptedToolStripMenuItem
             // 
-            this.encriptedToolStripMenuItem.Name = "encriptedToolStripMenuItem";
-            this.encriptedToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.encriptedToolStripMenuItem.Text = "Розшифрований";
-            this.encriptedToolStripMenuItem.Click += new System.EventHandler(this.encriptedToolStripMenuItem_Click);
+            encriptedToolStripMenuItem.Name = "encriptedToolStripMenuItem";
+            encriptedToolStripMenuItem.Size = new System.Drawing.Size(250, 34);
+            encriptedToolStripMenuItem.Text = "Розшифрований";
+            encriptedToolStripMenuItem.Click += encriptedToolStripMenuItem_Click;
             // 
             // decpritedToolStripMenuItem
             // 
-            this.decpritedToolStripMenuItem.Name = "decpritedToolStripMenuItem";
-            this.decpritedToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.decpritedToolStripMenuItem.Text = "Зашифрований";
-            this.decpritedToolStripMenuItem.Click += new System.EventHandler(this.decpritedToolStripMenuItem_Click);
+            decpritedToolStripMenuItem.Name = "decpritedToolStripMenuItem";
+            decpritedToolStripMenuItem.Size = new System.Drawing.Size(250, 34);
+            decpritedToolStripMenuItem.Text = "Зашифрований";
+            decpritedToolStripMenuItem.Click += decpritedToolStripMenuItem_Click;
             // 
             // save
             // 
-            this.save.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.decriptedSave,
-            this.encriptedSave});
-            this.save.Name = "save";
-            this.save.Size = new System.Drawing.Size(126, 22);
-            this.save.Text = "Зберегти";
+            save.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { decriptedSave, encriptedSave });
+            save.Name = "save";
+            save.Size = new System.Drawing.Size(270, 34);
+            save.Text = "Зберегти";
             // 
             // decriptedSave
             // 
-            this.decriptedSave.Name = "decriptedSave";
-            this.decriptedSave.Size = new System.Drawing.Size(167, 22);
-            this.decriptedSave.Text = "Розшифрований";
-            this.decriptedSave.Click += new System.EventHandler(this.decriptedSave_Click);
+            decriptedSave.Name = "decriptedSave";
+            decriptedSave.Size = new System.Drawing.Size(250, 34);
+            decriptedSave.Text = "Розшифрований";
+            decriptedSave.Click += decriptedSave_Click;
             // 
             // encriptedSave
             // 
-            this.encriptedSave.Name = "encriptedSave";
-            this.encriptedSave.Size = new System.Drawing.Size(167, 22);
-            this.encriptedSave.Text = "Зашифрований";
-            this.encriptedSave.Click += new System.EventHandler(this.encriptedSave_Click);
+            encriptedSave.Name = "encriptedSave";
+            encriptedSave.Size = new System.Drawing.Size(250, 34);
+            encriptedSave.Text = "Зашифрований";
+            encriptedSave.Click += encriptedSave_Click;
             // 
             // print
             // 
-            this.print.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.encriptedPrint,
-            this.decriptedPrint});
-            this.print.Name = "print";
-            this.print.Size = new System.Drawing.Size(126, 22);
-            this.print.Text = "Друк";
+            print.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { encriptedPrint, decriptedPrint });
+            print.Name = "print";
+            print.Size = new System.Drawing.Size(270, 34);
+            print.Text = "Друк";
             // 
             // encriptedPrint
             // 
-            this.encriptedPrint.Name = "encriptedPrint";
-            this.encriptedPrint.Size = new System.Drawing.Size(167, 22);
-            this.encriptedPrint.Text = "Розшифрований";
-            this.encriptedPrint.Click += new System.EventHandler(this.encriptedPrint_Click);
+            encriptedPrint.Name = "encriptedPrint";
+            encriptedPrint.Size = new System.Drawing.Size(250, 34);
+            encriptedPrint.Text = "Розшифрований";
+            encriptedPrint.Click += encriptedPrint_Click;
             // 
             // decriptedPrint
             // 
-            this.decriptedPrint.Name = "decriptedPrint";
-            this.decriptedPrint.Size = new System.Drawing.Size(167, 22);
-            this.decriptedPrint.Text = "Зашифрований";
+            decriptedPrint.Name = "decriptedPrint";
+            decriptedPrint.Size = new System.Drawing.Size(250, 34);
+            decriptedPrint.Text = "Зашифрований";
             // 
             // створитиToolStripMenuItem
             // 
-            this.створитиToolStripMenuItem.Name = "створитиToolStripMenuItem";
-            this.створитиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.створитиToolStripMenuItem.Text = "Створити";
+            створитиToolStripMenuItem.Name = "створитиToolStripMenuItem";
+            створитиToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            створитиToolStripMenuItem.Text = "Створити";
             // 
             // cript
             // 
-            this.cript.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.encript,
-            this.decript,
-            this.Criptonotepad});
-            this.cript.Name = "cript";
-            this.cript.Size = new System.Drawing.Size(91, 20);
-            this.cript.Text = "Шифрування";
+            cript.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { encript, decript, Criptonotepad });
+            cript.Name = "cript";
+            cript.Size = new System.Drawing.Size(135, 29);
+            cript.Text = "Шифрування";
             // 
             // encript
             // 
-            this.encript.Name = "encript";
-            this.encript.Size = new System.Drawing.Size(161, 22);
-            this.encript.Text = "Шифрувати";
-            this.encript.Click += new System.EventHandler(this.encript_Click);
+            encript.Name = "encript";
+            encript.Size = new System.Drawing.Size(242, 34);
+            encript.Text = "Шифрувати";
+            encript.Click += encript_Click;
             // 
             // decript
             // 
-            this.decript.Name = "decript";
-            this.decript.Size = new System.Drawing.Size(161, 22);
-            this.decript.Text = "Розшифрувати";
-            this.decript.Click += new System.EventHandler(this.decript_Click);
+            decript.Name = "decript";
+            decript.Size = new System.Drawing.Size(242, 34);
+            decript.Text = "Розшифрувати";
+            decript.Click += decript_Click;
             // 
             // Criptonotepad
             // 
-            this.Criptonotepad.Enabled = false;
-            this.Criptonotepad.Name = "Criptonotepad";
-            this.Criptonotepad.Size = new System.Drawing.Size(161, 22);
-            this.Criptonotepad.Text = "Шифроблокнот";
-            this.Criptonotepad.Visible = false;
-            this.Criptonotepad.Click += new System.EventHandler(this.Criptonotepad_Click);
+            Criptonotepad.Enabled = false;
+            Criptonotepad.Name = "Criptonotepad";
+            Criptonotepad.Size = new System.Drawing.Size(242, 34);
+            Criptonotepad.Text = "Шифроблокнот";
+            Criptonotepad.Visible = false;
+            Criptonotepad.Click += Criptonotepad_Click;
             // 
             // atack
             // 
-            this.atack.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cezarAtack,
-            this.trtemiusAtack});
-            this.atack.Name = "atack";
-            this.atack.Size = new System.Drawing.Size(50, 20);
-            this.atack.Text = "Атака";
-            this.atack.Visible = false;
+            atack.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { cezarAtack, trtemiusAtack });
+            atack.Name = "atack";
+            atack.Size = new System.Drawing.Size(74, 29);
+            atack.Text = "Атака";
+            atack.Visible = false;
             // 
             // cezarAtack
             // 
-            this.cezarAtack.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cezarAtackEng,
-            this.cezarAtackUkr});
-            this.cezarAtack.Name = "cezarAtack";
-            this.cezarAtack.Size = new System.Drawing.Size(254, 22);
-            this.cezarAtack.Text = "Груба Сила - Шифр Цезаря";
+            cezarAtack.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { cezarAtackEng, cezarAtackUkr });
+            cezarAtack.Name = "cezarAtack";
+            cezarAtack.Size = new System.Drawing.Size(380, 34);
+            cezarAtack.Text = "Груба Сила - Шифр Цезаря";
             // 
             // cezarAtackEng
             // 
-            this.cezarAtackEng.Name = "cezarAtackEng";
-            this.cezarAtackEng.Size = new System.Drawing.Size(135, 22);
-            this.cezarAtackEng.Text = "Анлгійська";
-            this.cezarAtackEng.Click += new System.EventHandler(this.cezarAtackEng_Click);
+            cezarAtackEng.Name = "cezarAtackEng";
+            cezarAtackEng.Size = new System.Drawing.Size(202, 34);
+            cezarAtackEng.Text = "Анлгійська";
+            cezarAtackEng.Click += cezarAtackEng_Click;
             // 
             // cezarAtackUkr
             // 
-            this.cezarAtackUkr.Name = "cezarAtackUkr";
-            this.cezarAtackUkr.Size = new System.Drawing.Size(135, 22);
-            this.cezarAtackUkr.Text = "Українська";
-            this.cezarAtackUkr.Click += new System.EventHandler(this.cezarAtackUkr_Click);
+            cezarAtackUkr.Name = "cezarAtackUkr";
+            cezarAtackUkr.Size = new System.Drawing.Size(202, 34);
+            cezarAtackUkr.Text = "Українська";
+            cezarAtackUkr.Click += cezarAtackUkr_Click;
             // 
             // trtemiusAtack
             // 
-            this.trtemiusAtack.Name = "trtemiusAtack";
-            this.trtemiusAtack.Size = new System.Drawing.Size(254, 22);
-            this.trtemiusAtack.Text = "Інтерполяція - Шифр Тритеміуса";
-            this.trtemiusAtack.Click += new System.EventHandler(this.trtemiusAtack_Click);
+            trtemiusAtack.Name = "trtemiusAtack";
+            trtemiusAtack.Size = new System.Drawing.Size(380, 34);
+            trtemiusAtack.Text = "Інтерполяція - Шифр Тритеміуса";
+            trtemiusAtack.Click += trtemiusAtack_Click;
             // 
             // FrecTab
             // 
-            this.FrecTab.Name = "FrecTab";
-            this.FrecTab.Size = new System.Drawing.Size(117, 20);
-            this.FrecTab.Text = "Частотна таблиця";
-            this.FrecTab.Visible = false;
-            this.FrecTab.Click += new System.EventHandler(this.FrecTab_Click);
+            FrecTab.Name = "FrecTab";
+            FrecTab.Size = new System.Drawing.Size(171, 29);
+            FrecTab.Text = "Частотна таблиця";
+            FrecTab.Visible = false;
+            FrecTab.Click += FrecTab_Click;
             // 
             // info
             // 
-            this.info.Name = "info";
-            this.info.Size = new System.Drawing.Size(45, 20);
-            this.info.Text = "Інфо";
-            this.info.Click += new System.EventHandler(this.info_Click);
+            info.Name = "info";
+            info.Size = new System.Drawing.Size(66, 29);
+            info.Text = "Інфо";
+            info.Click += info_Click;
             // 
             // exit
             // 
-            this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(48, 20);
-            this.exit.Text = "Вихід";
-            this.exit.Click += new System.EventHandler(this.exit_Click);
+            exit.Name = "exit";
+            exit.Size = new System.Drawing.Size(70, 29);
+            exit.Text = "Вихід";
+            exit.Click += exit_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Розшифрований текст";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(16, 43);
+            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(193, 25);
+            label1.TabIndex = 1;
+            label1.Text = "Розшифрований текст";
             // 
             // decriptedText
             // 
-            this.decriptedText.Location = new System.Drawing.Point(11, 44);
-            this.decriptedText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.decriptedText.Name = "decriptedText";
-            this.decriptedText.Size = new System.Drawing.Size(778, 181);
-            this.decriptedText.TabIndex = 2;
-            this.decriptedText.Text = "";
+            decriptedText.Location = new System.Drawing.Point(16, 73);
+            decriptedText.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            decriptedText.Name = "decriptedText";
+            decriptedText.Size = new System.Drawing.Size(1110, 299);
+            decriptedText.TabIndex = 2;
+            decriptedText.Text = "";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 244);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(125, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Зашифрований текст";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(16, 407);
+            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(183, 25);
+            label2.TabIndex = 3;
+            label2.Text = "Зашифрований текст";
             // 
             // encriptedText
             // 
-            this.encriptedText.Location = new System.Drawing.Point(11, 261);
-            this.encriptedText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.encriptedText.Name = "encriptedText";
-            this.encriptedText.Size = new System.Drawing.Size(778, 181);
-            this.encriptedText.TabIndex = 4;
-            this.encriptedText.Text = "";
+            encriptedText.Location = new System.Drawing.Point(16, 435);
+            encriptedText.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            encriptedText.Name = "encriptedText";
+            encriptedText.Size = new System.Drawing.Size(1110, 299);
+            encriptedText.TabIndex = 4;
+            encriptedText.Text = "";
             // 
             // printDialog1
             // 
-            this.printDialog1.UseEXDialog = true;
+            printDialog1.UseEXDialog = true;
             // 
             // saveFileDialog1
             // 
-            this.saveFileDialog1.DefaultExt = "txt";
-            this.saveFileDialog1.Filter = "*.txt|";
+            saveFileDialog1.DefaultExt = "txt";
+            saveFileDialog1.Filter = "*.txt|";
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "\"txt files (*.txt)|*.txt|Photo|*.jpg;*.jpeg;*.png;\"";
+            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.Filter = "\"txt files (*.txt)|*.txt|Photo|*.jpg;*.jpeg;*.png;\"";
             // 
             // printDocumentEncripted
             // 
-            this.printDocumentEncripted.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocumentEncripted_BeginPrint);
-            this.printDocumentEncripted.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocumentEncripted_PrintPage);
+            printDocumentEncripted.BeginPrint += printDocumentEncripted_BeginPrint;
+            printDocumentEncripted.PrintPage += printDocumentEncripted_PrintPage;
+            // 
+            // RSASecToolStripMenuItem
+            // 
+            RSASecToolStripMenuItem.Name = "RSASecToolStripMenuItem";
+            RSASecToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            RSASecToolStripMenuItem.Text = "RSA Послідовний";
+            RSASecToolStripMenuItem.Click += RSASecToolStripMenuItem_Click;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.encriptedText);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.decriptedText);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
-            this.Text = "Universal Encryptor";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(1143, 750);
+            Controls.Add(encriptedText);
+            Controls.Add(label2);
+            Controls.Add(decriptedText);
+            Controls.Add(label1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
+            Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            Name = "Form1";
+            Text = "Universal Encryptor";
+            Load += Form1_Load;
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -430,20 +376,17 @@ namespace Cezar
         private System.Windows.Forms.ToolStripMenuItem encriptedPrint;
         private System.Windows.Forms.ToolStripMenuItem decriptedPrint;
         private System.Drawing.Printing.PrintDocument printDocumentEncripted;
-        private System.Windows.Forms.ToolStripMenuItem Cezar;
         private System.Windows.Forms.ToolStripMenuItem створитиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem atack;
         private System.Windows.Forms.ToolStripMenuItem cezarAtack;
         private System.Windows.Forms.ToolStripMenuItem cezarAtackEng;
         private System.Windows.Forms.ToolStripMenuItem cezarAtackUkr;
         private System.Windows.Forms.ToolStripMenuItem FrecTab;
-        private System.Windows.Forms.ToolStripMenuItem Trtemius;
         private System.Windows.Forms.ToolStripMenuItem trtemiusAtack;
-        private System.Windows.Forms.ToolStripMenuItem Gamma;
         private System.Windows.Forms.ToolStripMenuItem Criptonotepad;
-        private System.Windows.Forms.ToolStripMenuItem Vigener;
         private System.Windows.Forms.ToolStripMenuItem RSA;
-        private System.Windows.Forms.ToolStripMenuItem Uitsrone;
+        private System.Windows.Forms.ToolStripMenuItem RSAParalelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem RSASecToolStripMenuItem;
     }
 }
 

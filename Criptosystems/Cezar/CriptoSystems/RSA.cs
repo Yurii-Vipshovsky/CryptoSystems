@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Numerics;
 using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Cezar.CriptoSystems
 {
@@ -10,6 +13,8 @@ namespace Cezar.CriptoSystems
         public int openKey { get; set; }
         public int closedKey { get; set; }
         public int n { get; set; }
+        public bool isParalel { get; set; }
+        public int threadCount { get; set; }
         private bool isPrime(int n)
         {
             bool isPrime = true;
@@ -59,18 +64,18 @@ namespace Cezar.CriptoSystems
             (int g, int x, int y) = gcdex(a, m);
             return g > 1 ? 0 : (x % m + m) % m;
         }
-        public RSA()
+        public RSA(bool isParalel, int threadCount)
         {
             int p = 4;
             int q = 4;
             Random rand = new Random();
             while (!isPrime(p))
             {
-                p = rand.Next(3,3000);
+                p = rand.Next(3, 2000);
             }
-            while (!isPrime(q) || q==p)
+            while (!isPrime(q) || q == p)
             {
-                q = rand.Next(3,3000);
+                q = rand.Next(3, 2000);
             }
             n = p * q;
             int fi = (p - 1) * (q - 1);
@@ -81,6 +86,8 @@ namespace Cezar.CriptoSystems
             }
             openKey = e;
             closedKey = invmod(e, fi);
+            this.isParalel = isParalel;
+            this.threadCount = threadCount;
         }
         public RSA(int e)
         {
@@ -106,14 +113,80 @@ namespace Cezar.CriptoSystems
             n = p * q;
             closedKey = invmod(e, fi);
         }
-        public string decrypt(string text)
+
+        public string decryptSyn(string text)
         {
             string result = "";
+            //text = text.TrimStart(';');
             string[] characters = text.Split(';');
             for (int i = 0; i < characters.Length - 1; ++i)
             {
                 result += (char)(fastPow(Convert.ToInt32(characters[i]), closedKey));
             }
+            return result;
+        }
+
+        public string decryptSyn(string[] characters)
+        {
+            string result = "";
+            for (int i = 0; i < characters.Length; ++i)
+            {
+                result += (char)(fastPow(Convert.ToInt32(characters[i]), closedKey));
+            }
+            return result;
+        }
+
+        public string decrypt(string text)
+        {
+            string result = "";
+            if (isParalel)
+            {
+                text = text.Trim(';');
+                string[] characters = text.Split(';');
+                string[] encryptedDataArray = new string[threadCount];
+
+                // Create and start threads for RSA encryption
+                Thread[] threads = new Thread[threadCount];
+                int elementsForThread = characters.Length / threadCount;
+                for (int i = 0; i < threadCount; i++)
+                {
+                    int index = i; // Capture the loop variable for each thread
+                    if (i == threadCount - 1)
+                    {
+                        threads[i] = new Thread(() =>
+                        {
+                            int length = characters.Length - index * elementsForThread;
+                            string[] temp = new string[length];
+                            Array.Copy(characters, index * elementsForThread, temp, 0, length);
+                            encryptedDataArray[index] = decryptSyn(temp);
+                        });
+                    }
+                    else
+                    {
+                        threads[i] = new Thread(() =>
+                        {
+                            int length = elementsForThread;
+                            string[] temp = new string[length];
+                            Array.Copy(characters, index * elementsForThread, temp, 0, length);
+                            encryptedDataArray[index] = decryptSyn(temp);
+                        });
+                    }
+                    threads[i].Start();
+                }
+                foreach (Thread thread in threads)
+                {
+                    thread.Join();
+                }
+                for (int i = 0; i < threadCount; i++)
+                {
+                    result += encryptedDataArray[i];
+                }
+            }
+            else
+            {
+                result = decryptSyn(text);
+            }
+            
             //for (int i = 0; i < text.Length; ++i)
             //{
             //    int elemI = text[i];
@@ -135,19 +208,66 @@ namespace Cezar.CriptoSystems
         {
             throw new NotImplementedException();
         }
+        
+        public string encryptSyc(string text)
+        {
+            string result = "";
+            byte[] utf8Bytes = Encoding.UTF8.GetBytes(text);
+            for (int i = 0; i < text.Length; ++i)
+            {
+                int elemI = utf8Bytes[i];
+                long elemP = fastPow(text[i], openKey);
+                result += elemP + ";";
+                //Encoding.UTF8.GetBytes(elemP)
+                //int elem = fastPow(text[i],openKey);
+                //result += (char)(elemP);
+            }
+            return result;
+        }
 
         public string encrypt(string text)
         {
             string result = "";
-            for (int i = 0; i < text.Length; ++i)
+            if (isParalel)
             {
+                string[] encryptedDataArray = new string[threadCount];
 
-                int elemI = text[i];
-                long elemP = fastPow(text[i], openKey);
-                result+=elemP+";";
-                //int elem = fastPow(text[i],openKey);
-                //result += (char)(elemP);
+                // Create and start threads for RSA encryption
+                Thread[] threads = new Thread[threadCount];
+                int elementsForThread = text.Length/threadCount;
+                for (int i = 0; i < threadCount; i++)
+                {
+                    int index = i; // Capture the loop variable for each thread
+                    if (i == threadCount - 1)
+                    {
+                        threads[i] = new Thread(() =>
+                        {
+                            encryptedDataArray[index] = this.encryptSyc(text.Substring(index * elementsForThread));
+                        });
+                    }
+                    else
+                    {
+                        threads[i] = new Thread(() =>
+                        {
+                            encryptedDataArray[index] = this.encryptSyc(text.Substring(index*elementsForThread, elementsForThread));
+                        });
+                    }
+                    
+                    threads[i].Start();
+                }
+                foreach (Thread thread in threads)
+                {
+                    thread.Join();
+                }
+                for (int i = 0; i < threadCount; i++)
+                {
+                    result += encryptedDataArray[i];
+                }
             }
+            else
+            {
+                return encryptSyc(text);
+            }            
             return result;
         }
 

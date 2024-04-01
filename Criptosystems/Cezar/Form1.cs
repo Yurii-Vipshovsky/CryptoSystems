@@ -117,7 +117,7 @@ namespace Cezar
                     System.IO.File.WriteAllText(saveFileDialog1.FileName, encriptedText.Text);
                 }
             }
-            
+
             else
             {
                 if (byteInfoEnc != null)
@@ -143,39 +143,39 @@ namespace Cezar
             {
                 printDocumentEncripted.Print();
             }
-        
 
-        //PrintDocument p = new PrintDocument();
-        //p.PrintPage += delegate (object sender1, PrintPageEventArgs e1)
-        //{
-        //    e1.Graphics.DrawString(decriptedText.Text, new Font("Times New Roman", 12), new SolidBrush(Color.Black), new RectangleF(0, 0, p.DefaultPageSettings.PrintableArea.Width, p.DefaultPageSettings.PrintableArea.Height));
 
-        //};
-        //try
-        //{
-        //    printDialog1.AllowSomePages = true;
+            //PrintDocument p = new PrintDocument();
+            //p.PrintPage += delegate (object sender1, PrintPageEventArgs e1)
+            //{
+            //    e1.Graphics.DrawString(decriptedText.Text, new Font("Times New Roman", 12), new SolidBrush(Color.Black), new RectangleF(0, 0, p.DefaultPageSettings.PrintableArea.Width, p.DefaultPageSettings.PrintableArea.Height));
 
-        //    // Show the help button.
-        //    printDialog1.ShowHelp = true;
+            //};
+            //try
+            //{
+            //    printDialog1.AllowSomePages = true;
 
-        //    // Set the Document property to the PrintDocument for 
-        //    // which the PrintPage Event has been handled. To display the
-        //    // dialog, either this property or the PrinterSettings property 
-        //    // must be set 
-        //    printDialog1.Document = p;
+            //    // Show the help button.
+            //    printDialog1.ShowHelp = true;
 
-        //    DialogResult result = printDialog1.ShowDialog();
+            //    // Set the Document property to the PrintDocument for 
+            //    // which the PrintPage Event has been handled. To display the
+            //    // dialog, either this property or the PrinterSettings property 
+            //    // must be set 
+            //    printDialog1.Document = p;
 
-        //    // If the result is OK then print the document.
-        //    if (result == DialogResult.OK)
-        //    {
-        //        p.Print();
-        //    }
-        //}
-        //catch (Exception ex)
-        //{
-        //    throw new Exception("Exception Occured While Printing", ex);
-        //}
+            //    DialogResult result = printDialog1.ShowDialog();
+
+            //    // If the result is OK then print the document.
+            //    if (result == DialogResult.OK)
+            //    {
+            //        p.Print();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception("Exception Occured While Printing", ex);
+            //}
         }
 
         private int linesPrinted;
@@ -228,7 +228,7 @@ namespace Cezar
         {
             EnterKeyCezar key = new EnterKeyCezar();
             key.ShowDialog();
-            if(key.DialogResult == DialogResult.OK)
+            if (key.DialogResult == DialogResult.OK)
             {
                 cezar = new Cezar(key.ReturnData());
             }
@@ -319,7 +319,7 @@ namespace Cezar
 
         private void FrecTab_Click(object sender, EventArgs e)
         {
-            if(CurentSystem == null)
+            if (CurentSystem == null)
             {
                 MessageBox.Show("Створіть криптосистему!");
                 return;
@@ -327,9 +327,9 @@ namespace Cezar
             if (CurentSystem.isEnglish() && CurentSystem.isTextInfo())
             {
                 Dictionary<string, int> frecData = new Dictionary<string, int>();
-                foreach(var letter in Enum.GetNames(typeof(EnglishABC)))
+                foreach (var letter in Enum.GetNames(typeof(EnglishABC)))
                 {
-                    foreach(var elem in encriptedText.Text)
+                    foreach (var elem in encriptedText.Text)
                     {
                         if (letter == Char.ToLower(elem).ToString())
                         {
@@ -351,7 +351,7 @@ namespace Cezar
                 FrecTable fr = new FrecTable(frecData.ToArray());
                 fr.Show();
             }
-            else if(!CurentSystem.isEnglish() && CurentSystem.isTextInfo())
+            else if (!CurentSystem.isEnglish() && CurentSystem.isTextInfo())
             {
                 Dictionary<string, int> frecData = new Dictionary<string, int>();
                 foreach (var letter in Enum.GetNames(typeof(UkrainianABC)))
@@ -398,12 +398,12 @@ namespace Cezar
             //1 буква зашифровується вільним членом з 2 підбираєм коеф для х і перевіряєм чи 3 розшифровується
             //якщо ні то розвязуєм систему і ерівряєм цю систему на 4
             //якщо ні то треба шукати гасло - шукаєм букви поки не повторяться, якщо перша повторилась перівряємо решту в додатковому циклі і так поки не найдем слово
-            if(encriptedText.Text.Length != decriptedText.Text.Length)
+            if (encriptedText.Text.Length != decriptedText.Text.Length)
             {
                 MessageBox.Show("Розмір розшифрованого тексту не збігається з зашированим!");
                 return;
             }
-            for(int i = 0; i < 3; ++i)
+            for (int i = 0; i < 3; ++i)
             {
                 if (!Char.IsLetter(encriptedText.Text[i]))
                 {
@@ -428,9 +428,9 @@ namespace Cezar
             bool IsMotto = false;
             if (IsEnglish)
             {
-                C = ((int)Enum.Parse(typeof(EnglishABC), encriptedText.Text[0].ToString().ToLower()) - (int)Enum.Parse(typeof(EnglishABC), decriptedText.Text[0].ToString().ToLower())+ICriptoSystem.ENG_ALF_COUNT)%ICriptoSystem.ENG_ALF_COUNT;
-                B = ((((int)Enum.Parse(typeof(EnglishABC), encriptedText.Text[1].ToString().ToLower()) - (int)Enum.Parse(typeof(EnglishABC), decriptedText.Text[1].ToString().ToLower()) + ICriptoSystem.ENG_ALF_COUNT) % ICriptoSystem.ENG_ALF_COUNT - C)+ICriptoSystem.ENG_ALF_COUNT) % ICriptoSystem.ENG_ALF_COUNT;
-                for(int i = 2; i < encriptedText.Text.Length; ++i)
+                C = ((int)Enum.Parse(typeof(EnglishABC), encriptedText.Text[0].ToString().ToLower()) - (int)Enum.Parse(typeof(EnglishABC), decriptedText.Text[0].ToString().ToLower()) + ICriptoSystem.ENG_ALF_COUNT) % ICriptoSystem.ENG_ALF_COUNT;
+                B = ((((int)Enum.Parse(typeof(EnglishABC), encriptedText.Text[1].ToString().ToLower()) - (int)Enum.Parse(typeof(EnglishABC), decriptedText.Text[1].ToString().ToLower()) + ICriptoSystem.ENG_ALF_COUNT) % ICriptoSystem.ENG_ALF_COUNT - C) + ICriptoSystem.ENG_ALF_COUNT) % ICriptoSystem.ENG_ALF_COUNT;
+                for (int i = 2; i < encriptedText.Text.Length; ++i)
                 {
                     if (!Char.IsLetter(encriptedText.Text[i]))
                     {
@@ -447,19 +447,19 @@ namespace Cezar
                 }
                 if (IsLinear)
                 {
-                    MessageBox.Show("Систему Взломано ключ - лінійний: "+B+"*p+"+C);
+                    MessageBox.Show("Систему Взломано ключ - лінійний: " + B + "*p+" + C);
                     return;
                 }
                 int AB = B;
-                A = (((((((((int)Enum.Parse(typeof(EnglishABC), encriptedText.Text[2].ToString().ToLower()) - (int)Enum.Parse(typeof(EnglishABC), decriptedText.Text[2].ToString().ToLower()) + ICriptoSystem.ENG_ALF_COUNT) % ICriptoSystem.ENG_ALF_COUNT - C) + ICriptoSystem.ENG_ALF_COUNT) % ICriptoSystem.ENG_ALF_COUNT)-2*AB+ICriptoSystem.ENG_ALF_COUNT)%ICriptoSystem.ENG_ALF_COUNT)+ICriptoSystem.ENG_ALF_COUNT)/2)% ICriptoSystem.ENG_ALF_COUNT;
-                B = ((AB+ICriptoSystem.ENG_ALF_COUNT)-A)% ICriptoSystem.ENG_ALF_COUNT;
+                A = (((((((((int)Enum.Parse(typeof(EnglishABC), encriptedText.Text[2].ToString().ToLower()) - (int)Enum.Parse(typeof(EnglishABC), decriptedText.Text[2].ToString().ToLower()) + ICriptoSystem.ENG_ALF_COUNT) % ICriptoSystem.ENG_ALF_COUNT - C) + ICriptoSystem.ENG_ALF_COUNT) % ICriptoSystem.ENG_ALF_COUNT) - 2 * AB + ICriptoSystem.ENG_ALF_COUNT) % ICriptoSystem.ENG_ALF_COUNT) + ICriptoSystem.ENG_ALF_COUNT) / 2) % ICriptoSystem.ENG_ALF_COUNT;
+                B = ((AB + ICriptoSystem.ENG_ALF_COUNT) - A) % ICriptoSystem.ENG_ALF_COUNT;
                 for (int i = 3; i < encriptedText.Text.Length; ++i)
                 {
                     if (!Char.IsLetter(encriptedText.Text[i]))
                     {
                         continue;
                     }
-                    int k =A * i * i + B * i + C;
+                    int k = A * i * i + B * i + C;
                     int newElem = ((int)Enum.Parse(typeof(EnglishABC), decriptedText.Text[i].ToString().ToLower()) + k) % ICriptoSystem.ENG_ALF_COUNT;
                     if (newElem != (int)Enum.Parse(typeof(EnglishABC), encriptedText.Text[i].ToString().ToLower()))
                     {
@@ -470,14 +470,14 @@ namespace Cezar
                 }
                 if (IsSquare)
                 {
-                    MessageBox.Show("Систему Взломано ключ - нелінійний: " + A + "*p^2+"+B+"*p+" + C);
+                    MessageBox.Show("Систему Взломано ключ - нелінійний: " + A + "*p^2+" + B + "*p+" + C);
                     return;
                 }
                 else
                 {
                     string possibleMotto = "";
                     int posibleMottoLength;
-                    for(int i = 0; i < decriptedText.Text.Length; ++i)
+                    for (int i = 0; i < decriptedText.Text.Length; ++i)
                     {
                         if (!Char.IsLetter(encriptedText.Text[i]))
                         {
@@ -485,7 +485,7 @@ namespace Cezar
                         }
                         else
                         {
-                            possibleMotto+= (EnglishABC)((((int)Enum.Parse(typeof(EnglishABC), encriptedText.Text[i].ToString().ToLower()) - (int)Enum.Parse(typeof(EnglishABC), decriptedText.Text[i].ToString().ToLower()))+ICriptoSystem.ENG_ALF_COUNT)% ICriptoSystem.ENG_ALF_COUNT);  
+                            possibleMotto += (EnglishABC)((((int)Enum.Parse(typeof(EnglishABC), encriptedText.Text[i].ToString().ToLower()) - (int)Enum.Parse(typeof(EnglishABC), decriptedText.Text[i].ToString().ToLower())) + ICriptoSystem.ENG_ALF_COUNT) % ICriptoSystem.ENG_ALF_COUNT);
                         }
                     }
                     string findFirstTwo = "";
@@ -496,22 +496,22 @@ namespace Cezar
                     }
                     findFirstTwo += possibleMotto[0];
                     findFirstTwo += possibleMotto[1];
-                    int possiblePosition = String.Concat(possibleMotto.Skip(2)).IndexOf(findFirstTwo)+2;
+                    int possiblePosition = String.Concat(possibleMotto.Skip(2)).IndexOf(findFirstTwo) + 2;
                     string tryMotto = possibleMotto.Substring(0, possiblePosition);
                     bool hasLetters = true;
-                    while (tryMotto.Contains("_")&&hasLetters)
+                    while (tryMotto.Contains("_") && hasLetters)
                     {
                         int index = tryMotto.IndexOf("_");
                         if (possibleMotto.Length > possiblePosition + index)
                         {
-                            tryMotto = tryMotto.Remove(index, 1).Insert(index, possibleMotto[possiblePosition+index].ToString());
+                            tryMotto = tryMotto.Remove(index, 1).Insert(index, possibleMotto[possiblePosition + index].ToString());
                         }
                         else
                         {
                             hasLetters = false;
                         }
                     }
-                    
+
                     if (hasLetters)
                     {
                         int[] Motto = new int[tryMotto.Length];
@@ -530,15 +530,15 @@ namespace Cezar
                         {
                             MessageBox.Show("Гасло: " + possibleMotto);
                         }
-                        
+
                     }
                     else
                     {
-                        MessageBox.Show("Гасло: "+possibleMotto);
+                        MessageBox.Show("Гасло: " + possibleMotto);
                     }
-                    
+
                 }
-                
+
             }
             //same for ukr
             else
@@ -617,7 +617,7 @@ namespace Cezar
                     while (tryMotto.Contains("_") && hasLetters)
                     {
                         int index = tryMotto.IndexOf("_");
-                        if (possibleMotto.Length > possiblePosition + index && possibleMotto[possiblePosition + index]!='_')
+                        if (possibleMotto.Length > possiblePosition + index && possibleMotto[possiblePosition + index] != '_')
                         {
                             tryMotto = tryMotto.Remove(index, 1).Insert(index, possibleMotto[possiblePosition + index].ToString());
                         }
@@ -683,7 +683,7 @@ namespace Cezar
                 Criptonotepad.Enabled = false;
                 Criptonotepad.Visible = false;
             }
-            
+
         }
         private void RSA_Click(object sender, EventArgs e)
         {
@@ -693,13 +693,13 @@ namespace Cezar
             {
                 if (key.ReturnData() == -1)
                 {
-                    rsa = new RSA();
+                    rsa = new RSA(false, 1);
                 }
                 else
                 {
                     rsa = new RSA(key.ReturnData());
                 }
-                MessageBox.Show("RSA шифр створений відкритий ключ - "+rsa.openKey);
+                MessageBox.Show("RSA шифр створений відкритий ключ - " + rsa.openKey);
                 CurentSystem = rsa;
                 Criptonotepad.Enabled = false;
                 Criptonotepad.Visible = false;
@@ -717,6 +717,29 @@ namespace Cezar
                 Criptonotepad.Enabled = false;
                 Criptonotepad.Visible = false;
             }
+        }
+
+        private void RSAParalelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EnterKeyRSA key = new EnterKeyRSA();
+            key.ShowDialog();
+            if (key.DialogResult == DialogResult.OK)
+            {
+                rsa = new RSA(true, key.ReturnData());
+                MessageBox.Show("RSA шифр створений відкритий ключ - " + rsa.openKey);
+                CurentSystem = rsa;
+                Criptonotepad.Enabled = false;
+                Criptonotepad.Visible = false;
+            }
+        }
+
+        private void RSASecToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rsa = new RSA(false, 1);
+            MessageBox.Show("RSA шифр створений відкритий ключ - " + rsa.openKey);
+            CurentSystem = rsa;
+            Criptonotepad.Enabled = false;
+            Criptonotepad.Visible = false;
         }
     }
 }
