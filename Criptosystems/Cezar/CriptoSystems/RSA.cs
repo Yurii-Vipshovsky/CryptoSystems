@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Numerics;
 using System.Text;
 using System.Threading;
@@ -71,11 +72,11 @@ namespace Cezar.CriptoSystems
             Random rand = new Random();
             while (!isPrime(p))
             {
-                p = rand.Next(3, 2000);
+                p = rand.Next(3, 200);
             }
             while (!isPrime(q) || q == p)
             {
-                q = rand.Next(3, 2000);
+                q = rand.Next(3, 200);
             }
             n = p * q;
             int fi = (p - 1) * (q - 1);
@@ -138,6 +139,7 @@ namespace Cezar.CriptoSystems
 
         public string decrypt(string text)
         {
+            text = File.ReadAllText("encryptedNumbers.txt");
             string result = "";
             if (isParalel)
             {
@@ -186,17 +188,6 @@ namespace Cezar.CriptoSystems
             {
                 result = decryptSyn(text);
             }
-            
-            //for (int i = 0; i < text.Length; ++i)
-            //{
-            //    int elemI = text[i];
-            //    long elemP = fastPow(text[i], closedKey);
-            //    //byte[] elem = BitConverter.GetBytes(fastPow(text[i], closedKey));
-            //    //mb reverse
-            //    //Array.Reverse(elem);
-            //    //result += Encoding.Convert(Encoding.Unicode, Encoding.UTF8, elem);
-            //    result += (char)(elemP);
-            //}
             return result;
         }
         public long decrypt(int elem)
@@ -212,16 +203,15 @@ namespace Cezar.CriptoSystems
         public string encryptSyc(string text)
         {
             string result = "";
-            byte[] utf8Bytes = Encoding.UTF8.GetBytes(text);
             for (int i = 0; i < text.Length; ++i)
             {
-                int elemI = utf8Bytes[i];
-                long elemP = fastPow(text[i], openKey);
+                int elemP = fastPow(text[i], openKey);
                 result += elemP + ";";
-                //Encoding.UTF8.GetBytes(elemP)
-                //int elem = fastPow(text[i],openKey);
-                //result += (char)(elemP);
+                //Encoding.UTF8.GetBytes(elemP);
+                //int elem = fastPow(text[i], openKey);
+                //result += Char.ConvertFromUtf32(elemP);
             }
+            Debug.WriteLine("threadDone "+ DateTimeOffset.Now.ToUnixTimeMilliseconds());
             return result;
         }
 
@@ -266,8 +256,17 @@ namespace Cezar.CriptoSystems
             }
             else
             {
-                return encryptSyc(text);
-            }            
+                result = encryptSyc(text);
+            }
+            File.WriteAllText("encryptedNumbers.txt", result);
+            result = result.Trim(';');
+            string[] characters = result.Split(';');
+            result = "";
+            foreach (string number in characters)
+            {
+                result += Char.ConvertFromUtf32(int.Parse(number));
+            }
+            
             return result;
         }
 

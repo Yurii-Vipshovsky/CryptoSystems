@@ -34,6 +34,7 @@ namespace Cezar
             create = new System.Windows.Forms.ToolStripMenuItem();
             RSA = new System.Windows.Forms.ToolStripMenuItem();
             RSAParalelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            RSASecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             open = new System.Windows.Forms.ToolStripMenuItem();
             encriptedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             decpritedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,8 +65,10 @@ namespace Cezar
             saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             printDocumentEncripted = new System.Drawing.Printing.PrintDocument();
-            RSASecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            statusStrip1 = new System.Windows.Forms.StatusStrip();
+            toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             menuStrip1.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -90,7 +93,7 @@ namespace Cezar
             // 
             create.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { RSA, RSAParalelToolStripMenuItem, RSASecToolStripMenuItem });
             create.Name = "create";
-            create.Size = new System.Drawing.Size(270, 34);
+            create.Size = new System.Drawing.Size(191, 34);
             create.Text = "Створити";
             // 
             // RSA
@@ -108,11 +111,18 @@ namespace Cezar
             RSAParalelToolStripMenuItem.Text = "Шифр RSA Паралельний";
             RSAParalelToolStripMenuItem.Click += RSAParalelToolStripMenuItem_Click;
             // 
+            // RSASecToolStripMenuItem
+            // 
+            RSASecToolStripMenuItem.Name = "RSASecToolStripMenuItem";
+            RSASecToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
+            RSASecToolStripMenuItem.Text = "RSA Послідовний";
+            RSASecToolStripMenuItem.Click += RSASecToolStripMenuItem_Click;
+            // 
             // open
             // 
             open.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { encriptedToolStripMenuItem, decpritedToolStripMenuItem });
             open.Name = "open";
-            open.Size = new System.Drawing.Size(270, 34);
+            open.Size = new System.Drawing.Size(191, 34);
             open.Text = "Відкрити";
             // 
             // encriptedToolStripMenuItem
@@ -133,7 +143,7 @@ namespace Cezar
             // 
             save.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { decriptedSave, encriptedSave });
             save.Name = "save";
-            save.Size = new System.Drawing.Size(270, 34);
+            save.Size = new System.Drawing.Size(191, 34);
             save.Text = "Зберегти";
             // 
             // decriptedSave
@@ -154,7 +164,7 @@ namespace Cezar
             // 
             print.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { encriptedPrint, decriptedPrint });
             print.Name = "print";
-            print.Size = new System.Drawing.Size(270, 34);
+            print.Size = new System.Drawing.Size(191, 34);
             print.Text = "Друк";
             // 
             // encriptedPrint
@@ -173,7 +183,7 @@ namespace Cezar
             // створитиToolStripMenuItem
             // 
             створитиToolStripMenuItem.Name = "створитиToolStripMenuItem";
-            створитиToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            створитиToolStripMenuItem.Size = new System.Drawing.Size(191, 34);
             створитиToolStripMenuItem.Text = "Створити";
             // 
             // cript
@@ -186,14 +196,14 @@ namespace Cezar
             // encript
             // 
             encript.Name = "encript";
-            encript.Size = new System.Drawing.Size(242, 34);
+            encript.Size = new System.Drawing.Size(270, 34);
             encript.Text = "Шифрувати";
             encript.Click += encript_Click;
             // 
             // decript
             // 
             decript.Name = "decript";
-            decript.Size = new System.Drawing.Size(242, 34);
+            decript.Size = new System.Drawing.Size(270, 34);
             decript.Text = "Розшифрувати";
             decript.Click += decript_Click;
             // 
@@ -201,7 +211,7 @@ namespace Cezar
             // 
             Criptonotepad.Enabled = false;
             Criptonotepad.Name = "Criptonotepad";
-            Criptonotepad.Size = new System.Drawing.Size(242, 34);
+            Criptonotepad.Size = new System.Drawing.Size(270, 34);
             Criptonotepad.Text = "Шифроблокнот";
             Criptonotepad.Visible = false;
             Criptonotepad.Click += Criptonotepad_Click;
@@ -298,7 +308,7 @@ namespace Cezar
             encriptedText.Location = new System.Drawing.Point(16, 435);
             encriptedText.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             encriptedText.Name = "encriptedText";
-            encriptedText.Size = new System.Drawing.Size(1110, 299);
+            encriptedText.Size = new System.Drawing.Size(1110, 290);
             encriptedText.TabIndex = 4;
             encriptedText.Text = "";
             // 
@@ -321,18 +331,28 @@ namespace Cezar
             printDocumentEncripted.BeginPrint += printDocumentEncripted_BeginPrint;
             printDocumentEncripted.PrintPage += printDocumentEncripted_PrintPage;
             // 
-            // RSASecToolStripMenuItem
+            // statusStrip1
             // 
-            RSASecToolStripMenuItem.Name = "RSASecToolStripMenuItem";
-            RSASecToolStripMenuItem.Size = new System.Drawing.Size(315, 34);
-            RSASecToolStripMenuItem.Text = "RSA Послідовний";
-            RSASecToolStripMenuItem.Click += RSASecToolStripMenuItem_Click;
+            statusStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusLabel1 });
+            statusStrip1.Location = new System.Drawing.Point(0, 718);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new System.Drawing.Size(1143, 32);
+            statusStrip1.TabIndex = 5;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new System.Drawing.Size(179, 25);
+            toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1143, 750);
+            Controls.Add(statusStrip1);
             Controls.Add(encriptedText);
             Controls.Add(label2);
             Controls.Add(decriptedText);
@@ -345,6 +365,8 @@ namespace Cezar
             Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -387,6 +409,8 @@ namespace Cezar
         private System.Windows.Forms.ToolStripMenuItem RSA;
         private System.Windows.Forms.ToolStripMenuItem RSAParalelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem RSASecToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 

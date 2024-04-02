@@ -241,6 +241,7 @@ namespace Cezar
         {
             if (CurentSystem != null)
             {
+                var watch = System.Diagnostics.Stopwatch.StartNew();
                 if (CurentSystem.isTextInfo())
                 {
                     encriptedText.Text = CurentSystem.encrypt(decriptedText.Text);
@@ -250,6 +251,9 @@ namespace Cezar
                     byteInfoEnc = CurentSystem.encrypt(byteInfoDec);
                     encriptedText.Text = "Дані зашифровано";
                 }
+                watch.Stop();
+                var elapsedMs = watch.ElapsedMilliseconds;
+                toolStripStatusLabel1.Text = "Work time" + elapsedMs;
             }
             else
             {
@@ -261,6 +265,7 @@ namespace Cezar
         {
             if (CurentSystem != null)
             {
+                var watch = System.Diagnostics.Stopwatch.StartNew();
                 if (CurentSystem.isTextInfo())
                 {
                     decriptedText.Text = CurentSystem.decrypt(encriptedText.Text);
@@ -270,6 +275,9 @@ namespace Cezar
                     byteInfoDec = CurentSystem.decrypt(byteInfoEnc);
                     decriptedText.Text = "Дані розшифровано";
                 }
+                watch.Stop();
+                var elapsedMs = watch.ElapsedMilliseconds;
+                toolStripStatusLabel1.Text = "Work time" + elapsedMs;
             }
             else
             {
@@ -725,7 +733,16 @@ namespace Cezar
             key.ShowDialog();
             if (key.DialogResult == DialogResult.OK)
             {
-                rsa = new RSA(true, key.ReturnData());
+                if (rsa != null)
+                {
+                    rsa.threadCount = key.ReturnData();
+                    rsa.isParalel = true;
+                }
+                else
+                {
+                    rsa = new RSA(true, key.ReturnData());
+                }
+                
                 MessageBox.Show("RSA шифр створений відкритий ключ - " + rsa.openKey);
                 CurentSystem = rsa;
                 Criptonotepad.Enabled = false;
